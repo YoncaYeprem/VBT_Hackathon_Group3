@@ -1,0 +1,16 @@
+{
+    "appBar": {
+        "title": "Hoş geldiniz"
+    },
+    "login": {
+        "signInButton": "Giriş Yap",
+        "emailText": "Email",
+        "passwordText": "Şifre"
+    },
+    "register": {
+        "signUpButton": "Kayıt Ol",
+        "emailText": "Email",
+        "passwordText": "Şifre",
+        "username": "Kullanıcı Adı"
+    }
+}

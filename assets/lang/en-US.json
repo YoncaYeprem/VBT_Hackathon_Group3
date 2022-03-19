@@ -1,0 +1,16 @@
+{
+    "appBar": {
+        "title": "Welcome"
+    },
+    "login": {
+        "signInButton": "Sign In",
+        "emailText": "Email",
+        "passwordText": "Password"
+    },
+    "register": {
+        "signUpButton": "Sign Up",
+        "emailText": "Email",
+        "passwordText": "Password",
+        "username": "Username"
+    }
+}
