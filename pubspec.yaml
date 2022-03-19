@@ -28,7 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-
+  easy_localization: ^3.0.0
   google_fonts: ^2.3.1
   
   #firebase
@@ -61,9 +61,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/lang/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
