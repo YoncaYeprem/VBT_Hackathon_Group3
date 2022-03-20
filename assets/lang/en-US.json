@@ -20,6 +20,7 @@
     },
     "firebase":{
         "noUserFound":"User not found",
-        "mailAlreadyUsing":"Mail address is already in use"
+        "mailAlreadyUsing":"Mail address is already in use",
+        "verifyMailMessage":"Please verify your email"
     }
 }

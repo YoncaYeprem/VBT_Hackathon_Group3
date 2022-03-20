@@ -20,6 +20,7 @@
     },
     "firebase":{
         "noUserFound":"Kullanıcı bulunamadı",
-        "mailAlreadyUsing":"Mail adresi zaten kullanımda"
+        "mailAlreadyUsing":"Mail adresi zaten kullanımda",
+        "verifyMailMessage":"Lütfen mailinizi onaylayın"
     }
 }

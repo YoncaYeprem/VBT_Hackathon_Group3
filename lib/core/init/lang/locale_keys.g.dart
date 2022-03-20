@@ -18,6 +18,7 @@ abstract class  LocaleKeys {
   static const validator = 'validator';
   static const firebase_noUserFound = 'firebase.noUserFound';
   static const firebase_mailAlreadyUsing = 'firebase.mailAlreadyUsing';
+  static const firebase_verifyMailMessage = 'firebase.verifyMailMessage';
   static const firebase = 'firebase';
 
 }
