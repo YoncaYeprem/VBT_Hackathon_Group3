@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'core/init/lang/locale_keys.g.dart';
 import 'core/constants/app_constants.dart';
 import 'core/constants/language_manager.dart';
 import 'core/init/theme/app_theme.dart';
+import 'feature/authentication/register/view/register_view.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -31,16 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Hackathon App',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.createThemeData(AppThemeLight()),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(LocaleKeys.appBar_title.tr()),
-        ),
-        body: Center(
-          child: Container(
-            child: const Text('Hello World'),
-          ),
-        ),
-      ),
+      home: RegisterView(),
     );
   }
 }
