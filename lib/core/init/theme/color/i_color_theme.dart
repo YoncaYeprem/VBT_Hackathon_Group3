@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class IColorTheme{
+abstract class IColorTheme {
   AppColors get colors;
   Color? backgroundColor;
   Color? appBarColor;
@@ -9,10 +9,16 @@ abstract class IColorTheme{
   ColorScheme? colorScheme;
 }
 
-class AppColors{
+class AppColors {
   final riceVine = const Color(0xffF5E8C7);
   final appleBlossom = const Color(0xffDEBA9D);
-  final neapolitan =const Color(0xff9E7777);
+  final neapolitan = const Color(0xff9E7777);
   final prussianPlum = const Color(0xff6F4C5B);
-  final black =  const Color(000000);
+  final black = const Color(0xff000000);
+  final lightRed = const Color(0xffD45555);
+  final scaffoldColor = const Color(0xffFDFDFD);
+  final darkScaffoldColor = const Color(0xff19191B);
+  final darkThemeTextColor = const Color(0xffFFFFFF);
+  final lightThemeTextColor = const Color(0xff19191B);
+  final headline6Color = const Color(0xff9D9D9D);
 }

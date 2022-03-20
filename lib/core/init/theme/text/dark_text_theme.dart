@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vbt_hackathon_group3/core/init/theme/color/i_color_theme.dart';
 
 import 'i_text_theme.dart';
 
@@ -17,6 +18,9 @@ class DarkTextTheme implements ITextTheme {
 
   @override
   Color? primaryColor;
+  @override
+  // TODO: implement getAppColors
+  AppColors getAppColors = AppColors();
 
   DarkTextTheme(this.primaryColor) {
     fontFamily = GoogleFonts.lato().fontFamily;
@@ -24,5 +28,9 @@ class DarkTextTheme implements ITextTheme {
     headline4 = TextStyle(fontSize: 30, fontWeight: FontWeight.w300);
     headline6 = TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
     body1 = TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
+    button = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   }
+
+  @override
+  TextStyle? button;
 }
