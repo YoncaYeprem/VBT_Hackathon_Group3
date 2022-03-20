@@ -44,70 +44,23 @@ class LoginView extends StatelessWidget {
                         height: context.dynamicHeight(0.5),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CustomTextField(
-                                  context: context,
-                                  textInputType: TextInputType.emailAddress,
-                                  hintString: LocaleKeys.login_emailText.tr(),
-                                  textController: _mailController,
-                                  isObsecure: false,
-                                  node: mailNode),
-                              SizedBox(
-                                  height: MediaQuery.of(context).size.height *
-                                      0.02),
-                              CustomTextField(
-                                  context: context,
-                                  suffix: IconButton(
-                                      icon: context.read<LoginCubit>().isVisible
-                                          ? Icon(Icons.remove_red_eye)
-                                          : Icon(Icons.remove_red_eye_outlined),
-                                      onPressed: () {
-                                        context
-                                            .read<LoginCubit>()
-                                            .changeVisibility();
-                                      }),
-                                  hintString:
-                                      LocaleKeys.login_passwordText.tr(),
-                                  textController: _passController,
-                                  isObsecure:
-                                      context.read<LoginCubit>().isVisible,
-                                  node: passNode),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                          LocaleKeys.login_forgetPassowrd.tr(),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium)),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: MediaQuery.of(context).size.height *
-                                      0.02),
-                              StadiumElevatedBTN(
-                                  onPressed: () {},
-                                  child:
-                                      Text(LocaleKeys.login_signInButton.tr()),
-                                  context: context),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => RegisterView()));
-                                },
-                                child: Text(
-                                  LocaleKeys.register_signUpButton.tr(),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(color: AppColors().lightRed),
-                                ),
-                              )
-                            ],
+                          child: Form(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                mailTextField(context),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02),
+                                passwordTextField(context),
+                                forgetPassBTN(context),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02),
+                                signInBTN(context),
+                                signUpBTN(context)
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -120,5 +73,66 @@ class LoginView extends StatelessWidget {
         },
       ),
     );
+  }
+
+  TextButton signUpBTN(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => RegisterView()));
+      },
+      child: Text(
+        LocaleKeys.register_signUpButton.tr(),
+        style: Theme.of(context)
+            .textTheme
+            .subtitle1!
+            .copyWith(color: AppColors().lightRed),
+      ),
+    );
+  }
+
+  StadiumElevatedBTN signInBTN(BuildContext context) {
+    return StadiumElevatedBTN(
+        onPressed: () {},
+        child: Text(LocaleKeys.login_signInButton.tr()),
+        context: context);
+  }
+
+  Row forgetPassBTN(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        TextButton(
+            onPressed: () {},
+            child: Text(LocaleKeys.login_forgetPassowrd.tr(),
+                style: Theme.of(context).textTheme.bodyMedium)),
+      ],
+    );
+  }
+
+  CustomTextField passwordTextField(BuildContext context) {
+    return CustomTextField(
+        context: context,
+        suffix: IconButton(
+            icon: context.read<LoginCubit>().isVisible
+                ? Icon(Icons.remove_red_eye)
+                : Icon(Icons.remove_red_eye_outlined),
+            onPressed: () {
+              context.read<LoginCubit>().changeVisibility();
+            }),
+        hintString: LocaleKeys.login_passwordText.tr(),
+        textController: _passController,
+        isObsecure: context.read<LoginCubit>().isVisible,
+        node: passNode);
+  }
+
+  CustomTextField mailTextField(BuildContext context) {
+    return CustomTextField(
+        context: context,
+        textInputType: TextInputType.emailAddress,
+        hintString: LocaleKeys.login_emailText.tr(),
+        textController: _mailController,
+        isObsecure: false,
+        node: mailNode);
   }
 }
