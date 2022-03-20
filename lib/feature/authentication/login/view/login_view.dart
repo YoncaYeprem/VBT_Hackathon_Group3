@@ -16,8 +16,8 @@ class LoginView extends StatelessWidget {
 
   final _mailController = TextEditingController();
   final _passController = TextEditingController();
-  var mailNode = FocusNode();
-  var passNode = FocusNode();
+  final FocusNode mailNode = FocusNode();
+  final FocusNode passNode = FocusNode();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -53,8 +53,12 @@ class LoginView extends StatelessWidget {
                       child: SizedBox(
                         height: context.dynamicHeight(0.5),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: context.paddingLow,
                           child: Form(
+                            autovalidateMode:
+                                (!mailNode.hasFocus || !passNode.hasFocus)
+                                    ? AutovalidateMode.always
+                                    : AutovalidateMode.disabled,
                             key: formKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
