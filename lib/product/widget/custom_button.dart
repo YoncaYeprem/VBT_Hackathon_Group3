@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class stadiumElevatedBTN extends ElevatedButton {
-  stadiumElevatedBTN({required VoidCallback? onPressed, required Widget? child})
+class StadiumElevatedBTN extends ElevatedButton {
+  StadiumElevatedBTN({required VoidCallback? onPressed, required Widget? child})
       : super(
             onPressed: onPressed,
             child: child,

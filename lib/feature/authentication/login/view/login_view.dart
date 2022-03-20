@@ -18,17 +18,17 @@ class LoginView extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            customTextField(
+            CustomTextField(
                 textController: _controller, isObsecure: false, node: mailNode),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            customTextField(
+            CustomTextField(
                 textController: _controller, isObsecure: false, node: passNode),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            stadiumElevatedBTN(
+            StadiumElevatedBTN(
                 onPressed: () {}, child: Text(LocaleKeys.login_signInButton)),
           ],
         )),
