@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vbt_hackathon_group3/core/init/theme/color/i_color_theme.dart';
+import '../color/i_color_theme.dart';
 
 import 'i_text_theme.dart';
 

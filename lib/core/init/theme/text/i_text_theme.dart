@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vbt_hackathon_group3/core/init/theme/color/i_color_theme.dart';
+import '../color/i_color_theme.dart';
 
 abstract class ITextTheme {
   String? fontFamily;
