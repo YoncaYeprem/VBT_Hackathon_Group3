@@ -5,7 +5,8 @@
     "login": {
         "signInButton": "Sign In",
         "emailText": "Email",
-        "passwordText": "Password"
+        "passwordText": "Password",
+        "forgetPassowrd":"Forget Password?"
     },
     "register": {
         "signUpButton": "Sign Up",

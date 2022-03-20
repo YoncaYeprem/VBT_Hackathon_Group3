@@ -6,6 +6,7 @@ abstract class  LocaleKeys {
   static const login_signInButton = 'login.signInButton';
   static const login_emailText = 'login.emailText';
   static const login_passwordText = 'login.passwordText';
+  static const login_forgetPassowrd = 'login.forgetPassowrd';
   static const login = 'login';
   static const register_signUpButton = 'register.signUpButton';
   static const register_emailText = 'register.emailText';
