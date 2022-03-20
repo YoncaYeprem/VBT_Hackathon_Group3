@@ -6,6 +6,8 @@ import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
   var _controller = TextEditingController();
+  var mailNode = FocusNode();
+  var passNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +18,13 @@ class LoginView extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            customTextField(textController: _controller, isObsecure: false),
+            customTextField(
+                textController: _controller, isObsecure: false, node: mailNode),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            customTextField(textController: _controller, isObsecure: false),
+            customTextField(
+                textController: _controller, isObsecure: false, node: passNode),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
