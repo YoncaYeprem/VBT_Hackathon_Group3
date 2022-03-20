@@ -23,10 +23,13 @@ class DarkColorTheme implements IColorTheme {
 
   DarkColorTheme() {
     appBarColor = colors.black;
-    backgroundColor = colors.neapolitan;
+    backgroundColor = colors.darkScaffoldColor;
     floatingButtonColor = colors.neapolitan;
     brightness = Brightness.light;
-    colorScheme = const ColorScheme.dark()
-        .copyWith(onPrimary: colors.black, onSurface: colors.appleBlossom);
+    colorScheme = const ColorScheme.dark().copyWith(
+      onPrimary: colors.black,
+      onSurface: colors.appleBlossom,
+      primary: colors.lightRed,
+    );
   }
 }

@@ -7,7 +7,7 @@ import 'text/dark_text_theme.dart';
 import 'text/i_text_theme.dart';
 import 'text/light_text_theme.dart';
 
-abstract class ITheme{
+abstract class ITheme {
   ITextTheme get textTheme;
   IColorTheme get colorTheme;
 }
@@ -17,31 +17,34 @@ class AppThemeLight extends ITheme {
   IColorTheme get colorTheme => LightColorTheme();
 
   @override
-  ITextTheme get textTheme => LightTextTheme(colorTheme.colors.prussianPlum);
+  ITextTheme get textTheme => LightTextTheme();
 }
 
-class AppThemeDark extends ITheme{
+class AppThemeDark extends ITheme {
   @override
   IColorTheme get colorTheme => DarkColorTheme();
 
   @override
-  ITextTheme get textTheme => DarkTextTheme(colorTheme.colors.riceVine);
-
+  ITextTheme get textTheme =>
+      DarkTextTheme(colorTheme.colors.darkThemeTextColor);
 }
 
-abstract class ThemeManager{
-  static ThemeData createThemeData(ITheme theme){
+abstract class ThemeManager {
+  static ThemeData createThemeData(ITheme theme) {
     return ThemeData(
       fontFamily: theme.textTheme.fontFamily,
+      scaffoldBackgroundColor: theme.colorTheme.backgroundColor,
       textTheme: TextTheme(
         headline2: theme.textTheme.headline2,
         headline4: theme.textTheme.headline4,
         headline6: theme.textTheme.headline6,
-        bodyText1: theme.textTheme.body1
-      ).apply(bodyColor: theme.textTheme.primaryColor),
+        bodyText1: theme.textTheme.body1,
+        button: theme.textTheme.button,
+      ),
       appBarTheme: AppBarTheme(color: theme.colorTheme.appBarColor),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: theme.colorTheme.floatingButtonColor),
-      colorScheme: theme.colorTheme.colorScheme
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: theme.colorTheme.floatingButtonColor),
+      colorScheme: theme.colorTheme.colorScheme,
     );
   }
 }

@@ -23,10 +23,14 @@ class LightColorTheme implements IColorTheme {
 
   LightColorTheme() {
     appBarColor = colors.prussianPlum;
-    backgroundColor = colors.neapolitan;
+
+    backgroundColor = colors.scaffoldColor;
     floatingButtonColor = colors.riceVine;
     brightness = Brightness.light;
-    colorScheme = const ColorScheme.light()
-        .copyWith(onPrimary: colors.riceVine, onSurface: colors.prussianPlum);
+    colorScheme = const ColorScheme.light().copyWith(
+      onPrimary: colors.riceVine,
+      onSurface: colors.prussianPlum,
+      primary: colors.lightRed,
+    );
   }
 }

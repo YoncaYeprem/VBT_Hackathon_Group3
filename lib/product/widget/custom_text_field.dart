@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class customTextField extends TextFormField {
+class CustomTextField extends TextFormField {
   final FocusNode node;
   final TextEditingController textController;
   final bool isObsecure;
 
-  customTextField(
+  CustomTextField(
       {Key? key,
       required this.textController,
       required this.isObsecure,
