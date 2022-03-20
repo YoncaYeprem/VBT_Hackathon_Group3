@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:vbt_hackathon_group3/product/widget/custom_button.dart';
+import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({ Key? key }) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
+  var _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
+        child: Form(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            customTextField(textController: _controller, isObsecure: false),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            customTextField(textController: _controller, isObsecure: false),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            stadiumElevatedBTN(onPressed: () {}, child: Text("data")),
+          ],
+        )),
+      ),
     );
   }
 }
