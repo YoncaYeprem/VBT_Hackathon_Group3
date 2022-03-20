@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../color/i_color_theme.dart';
 
+import '../color/i_color_theme.dart';
 import 'i_text_theme.dart';
 
 class LightTextTheme implements ITextTheme {

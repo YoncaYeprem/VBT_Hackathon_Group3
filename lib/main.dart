@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'feature/authentication/login/view/login_view.dart';
+
 import 'core/constants/app_constants.dart';
 import 'core/constants/language_manager.dart';
 import 'core/init/theme/app_theme.dart';
-import 'feature/authentication/register/view/register_view.dart';
+import 'feature/authentication/login/view/login_view.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
