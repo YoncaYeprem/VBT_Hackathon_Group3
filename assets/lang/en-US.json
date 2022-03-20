@@ -13,5 +13,13 @@
         "emailText": "Email",
         "passwordText": "Password",
         "username": "Username"
+    },
+    "validator":{
+        "cantEmpty":"This area cannot be left empty",
+        "enterValidValue":"Please enter a valid value"
+    },
+    "firebase":{
+        "noUserFound":"User not found",
+        "mailAlreadyUsing":"Mail address is already in use"
     }
 }

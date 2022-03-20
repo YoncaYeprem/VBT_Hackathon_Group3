@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
 
 class Authentication {
   Future<User?> eMailSignIn(
@@ -15,8 +16,8 @@ class Authentication {
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("No user found")));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(LocaleKeys.firebase_noUserFound)));
       }
     }
     return user;
@@ -29,8 +30,8 @@ class Authentication {
           .createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Mail already using")));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(LocaleKeys.firebase_mailAlreadyUsing)));
       }
     }
   }

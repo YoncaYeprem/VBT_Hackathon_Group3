@@ -5,6 +5,8 @@ import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
 import 'package:vbt_hackathon_group3/core/init/theme/color/i_color_theme.dart';
 import 'package:vbt_hackathon_group3/feature/authentication/login/viewmodel/cubit/login_cubit.dart';
 import 'package:vbt_hackathon_group3/feature/authentication/register/view/register_view.dart';
+import 'package:vbt_hackathon_group3/feature/profile/view/profile_view.dart';
+import 'package:vbt_hackathon_group3/product/utils/validator.dart';
 import 'package:vbt_hackathon_group3/product/widget/custom_button.dart';
 import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
 import 'package:kartal/kartal.dart';
@@ -16,13 +18,21 @@ class LoginView extends StatelessWidget {
   final _passController = TextEditingController();
   var mailNode = FocusNode();
   var passNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is SignSucces) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text("Login succes")));
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => ProfileView()));
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(
@@ -45,6 +55,7 @@ class LoginView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Form(
+                            key: formKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -93,7 +104,11 @@ class LoginView extends StatelessWidget {
 
   StadiumElevatedBTN signInBTN(BuildContext context) {
     return StadiumElevatedBTN(
-        onPressed: () {},
+        onPressed: () {
+          context
+              .read<LoginCubit>()
+              .signIn(_mailController.text, _passController.text, context);
+        },
         child: Text(LocaleKeys.login_signInButton.tr()),
         context: context);
   }
@@ -112,6 +127,7 @@ class LoginView extends StatelessWidget {
 
   CustomTextField passwordTextField(BuildContext context) {
     return CustomTextField(
+        Validator: (v) => Validator().validatePasswordForm(v),
         context: context,
         suffix: IconButton(
             icon: context.read<LoginCubit>().isVisible
@@ -129,6 +145,7 @@ class LoginView extends StatelessWidget {
   CustomTextField mailTextField(BuildContext context) {
     return CustomTextField(
         context: context,
+        Validator: (v) => Validator().validateMailForm(v),
         textInputType: TextInputType.emailAddress,
         hintString: LocaleKeys.login_emailText.tr(),
         textController: _mailController,

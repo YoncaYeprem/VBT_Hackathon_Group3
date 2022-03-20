@@ -8,11 +8,13 @@ class CustomTextField extends TextFormField {
   final TextInputType textInputType;
   final IconButton? suffix;
   final BuildContext context;
+  final FormFieldValidator<String>? Validator;
 
   CustomTextField(
       {Key? key,
       required this.hintString,
       required this.context,
+      this.Validator,
       this.suffix,
       this.textInputType = TextInputType.text,
       required this.textController,
@@ -21,6 +23,7 @@ class CustomTextField extends TextFormField {
       : super(
           key: key,
           focusNode: node,
+          validator: Validator,
           controller: textController,
           obscureText: isObsecure,
           keyboardType: textInputType,
