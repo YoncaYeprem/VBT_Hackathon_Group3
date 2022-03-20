@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
 import 'package:vbt_hackathon_group3/product/widget/custom_button.dart';
 import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
 
@@ -23,7 +24,8 @@ class LoginView extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            stadiumElevatedBTN(onPressed: () {}, child: Text("data")),
+            stadiumElevatedBTN(
+                onPressed: () {}, child: Text(LocaleKeys.login_signInButton)),
           ],
         )),
       ),
