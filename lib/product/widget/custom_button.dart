@@ -16,5 +16,5 @@ class StadiumElevatedBTN extends ElevatedButton {
                 shape:
                     MaterialStateProperty.all<StadiumBorder>(StadiumBorder()),
                 padding: MaterialStateProperty.all<EdgeInsets>(
-                    context.horizontalPaddingHigh)));
+                    context.horizontalPaddingHigh * 1.2)));
 }
