@@ -10,7 +10,7 @@ class Authentication {
   Future<User?> eMailSignIn(
       {required String eMail,
       required String password,
-      required BuildContext context}) async {
+      BuildContext? context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
     try {
@@ -19,7 +19,9 @@ class Authentication {
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
-        _sendSnacMessage(context, LocaleKeys.firebase_noUserFound.tr());
+        if (context != null) {
+          _sendSnacMessage(context, LocaleKeys.firebase_noUserFound.tr());
+        }
       }
     }
     return user;
