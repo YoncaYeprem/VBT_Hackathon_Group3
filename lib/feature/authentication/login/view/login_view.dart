@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
-import 'package:vbt_hackathon_group3/core/init/theme/color/i_color_theme.dart';
-import 'package:vbt_hackathon_group3/feature/authentication/login/viewmodel/cubit/login_cubit.dart';
-import 'package:vbt_hackathon_group3/feature/authentication/register/view/register_view.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_button.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
+import '../../../../core/init/theme/color/i_color_theme.dart';
+import '../viewmodel/cubit/login_cubit.dart';
+import '../../register/view/register_view.dart';
+import '../../../../product/widget/custom_button.dart';
+import '../../../../product/widget/custom_text_field.dart';
 import 'package:kartal/kartal.dart';
 
 class LoginView extends StatelessWidget {
