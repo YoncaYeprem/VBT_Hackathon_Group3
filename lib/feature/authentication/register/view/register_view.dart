@@ -47,7 +47,7 @@ class RegisterView extends StatelessWidget {
                                     child: profileImage(
                                         context.read<RegisterCubit>())),
                                 Expanded(
-                                    flex: 7,
+                                    flex: 9,
                                     child: buildForm(context,
                                         context.read<RegisterCubit>())),
                                 Expanded(
@@ -120,7 +120,7 @@ class RegisterView extends StatelessWidget {
   StadiumElevatedBTN signUpButton(RegisterCubit reader, BuildContext context) {
     return StadiumElevatedBTN(
         onPressed: () {
-          reader.userSignUp(context);
+          context.read<RegisterCubit>().userSignUp(context);
         },
         child: Text(LocaleKeys.register_signUpButton.tr()),
         context: context);
