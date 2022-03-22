@@ -9,6 +9,7 @@ class Authentication {
       required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
+
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: eMail, password: password);

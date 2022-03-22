@@ -4,3 +4,9 @@ part of 'other_profile_page_cubit_cubit.dart';
 abstract class OtherProfilePageCubitState {}
 
 class OtherProfilePageCubitInitial extends OtherProfilePageCubitState {}
+
+class BookDownloadedState extends OtherProfilePageCubitState {
+  final BookModel model;
+
+  BookDownloadedState(this.model);
+}
