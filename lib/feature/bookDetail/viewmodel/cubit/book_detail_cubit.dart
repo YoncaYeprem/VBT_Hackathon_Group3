@@ -5,4 +5,11 @@ part 'book_detail_state.dart';
 
 class BookDetailCubit extends Cubit<BookDetailState> {
   BookDetailCubit() : super(BookDetailInitial());
+
+  bool isSaved = false;
+
+  void changeSave() {
+    isSaved = !isSaved;
+    emit(BookDetailChangeSave());
+  }
 }
