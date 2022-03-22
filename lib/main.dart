@@ -7,6 +7,7 @@ import 'core/constants/app_constants.dart';
 import 'core/constants/language_manager.dart';
 import 'core/init/theme/app_theme.dart';
 import 'feature/authentication/register/view/register_view.dart';
+
 import 'firebase_options.dart';
 
 Future<void> main() async {

@@ -23,12 +23,10 @@ class ProfileBackground extends StatelessWidget {
             decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-            // child: dummyList(context),
-            child: Expanded(
-                child: Padding(
+            child: Padding(
               padding: EdgeInsets.only(top: context.dynamicHeight(0.15)),
               child: body,
-            )),
+            ),
           ),
         )
       ],

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -59,5 +60,10 @@ class BookModel extends HiveObject {
   @override
   Map<String, dynamic> toJson() {
     return _$BookModelToJson(this);
+  }
+
+  factory BookModel.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    return _$BookModelFromJson(data);
   }
 }

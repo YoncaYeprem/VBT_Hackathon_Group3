@@ -65,12 +65,15 @@ class FirebaseStorageFunctions {
           .collection("books")
           .withConverter<BookModel>(
               fromFirestore: (snapshot, options) =>
-                  BookModel.fromJson(snapshot.data()!),
+                  BookModel.fromFirestore(snapshot),
               toFirestore: (model, _) => BookModel().toJson());
       final model = await books.doc(bookId).get().then((value) => value.data());
+      print("Kitap ismi: ${model?.bookName}");
       return model;
     } on FirebaseStorage catch (e) {
       log(e.bucket);
     }
+    print("null returns");
+    return null;
   }
 }
