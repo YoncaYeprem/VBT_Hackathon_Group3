@@ -13,5 +13,12 @@ abstract class  LocaleKeys {
   static const register_passwordText = 'register.passwordText';
   static const register_username = 'register.username';
   static const register = 'register';
+  static const validator_cantEmpty = 'validator.cantEmpty';
+  static const validator_enterValidValue = 'validator.enterValidValue';
+  static const validator = 'validator';
+  static const firebase_noUserFound = 'firebase.noUserFound';
+  static const firebase_mailAlreadyUsing = 'firebase.mailAlreadyUsing';
+  static const firebase_verifyMailMessage = 'firebase.verifyMailMessage';
+  static const firebase = 'firebase';
 
 }

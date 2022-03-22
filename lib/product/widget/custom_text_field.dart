@@ -14,6 +14,7 @@ class CustomTextField extends TextFormField {
       {Key? key,
       required this.hintString,
       required this.context,
+      this.Validator,
       this.suffix,
       this.Validator,
       this.textInputType = TextInputType.text,
@@ -23,6 +24,7 @@ class CustomTextField extends TextFormField {
       : super(
           key: key,
           focusNode: node,
+          validator: Validator,
           controller: textController,
           obscureText: isObsecure,
           validator: Validator,
