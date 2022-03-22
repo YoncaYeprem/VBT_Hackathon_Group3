@@ -23,11 +23,12 @@ class Authentication {
     return user;
   }
 
-  Future<void> signUp(
+   Future signUp(
       String email, String password, BuildContext context) async {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+        return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
         ScaffoldMessenger.of(context)
