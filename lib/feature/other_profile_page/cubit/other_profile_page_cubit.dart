@@ -14,6 +14,7 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
   }
   List<BookModel>? listBookModel;
   UserModel? user;
+
   Future<void> getUserData() async {
     try {
       // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
@@ -32,9 +33,9 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
 
   Future<void> getAllBookData(String? ownedBookUID) async {
     listBookModel = await FirebaseStorageFunctions()
-        .getBookModels(ownedUID: ownedBookUID ?? "");
+        .getBookModels(ownedUID: user?.id ?? "");
     if (listBookModel != null) {
-      listBookModel?.removeWhere((element) => element.ownerUID != ownedBookUID);
+      listBookModel?.removeWhere((element) => element.ownerUID != user?.id);
       inspect(listBookModel);
     }
 

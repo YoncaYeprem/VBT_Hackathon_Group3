@@ -12,6 +12,7 @@ import '../cubit/other_profile_page_cubit.dart';
 class OtherProfilePage extends StatelessWidget {
   const OtherProfilePage({Key? key, required this.user}) : super(key: key);
   final User? user;
+  final tempUID = "UI6gjx43h6gYEigYKNphCOWn8tH2";
 
   @override
   Widget build(BuildContext context) {
