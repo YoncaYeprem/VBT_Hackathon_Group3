@@ -28,7 +28,7 @@ class OtherProfilePage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          redAndWhiteBackground(context),
+          redAndWhiteBackground(context), //includes user books
           profileCard(context),
           ProfileText(context),
         ],
@@ -127,20 +127,20 @@ class OtherProfilePage extends StatelessWidget {
             // child: dummyList(context),
             child: Expanded(
                 child: Padding(
-              padding: EdgeInsets.only(top: context.dynamicHeight(0.15)),
-              child: ListView(
-                children: [
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                ],
-              ),
-            )),
+                    padding: EdgeInsets.only(top: context.dynamicHeight(0.15)),
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(context
+                                  .read<OtherProfilePageCubit>()
+                                  .model
+                                  ?.bookName ??
+                              ""),
+                        );
+                      },
+                      itemCount:
+                          0, // TODO: replace with Inside of userModel => ownBooks.length
+                    ))),
           ),
         )
       ],
