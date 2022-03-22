@@ -1,3 +1,4 @@
+import 'package:kartal/kartal.dart';
 import 'package:flutter/material.dart';
 import 'package:vbt_hackathon_group3/product/productmodel.dart';
 
@@ -11,25 +12,40 @@ class ProfileBookList extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) {
         if (bookList.length == 0) {
-          return Center(
+          return const Center(
             child: Text("Henüz buralar boş"),
           );
+        } else {
+          return listCard(bookList[index], context);
         }
-        return listCard(bookList[index]);
       },
       itemCount: bookList.length,
     );
   }
 }
 
-Widget listCard(BookModel model) {
+Widget listCard(BookModel model, BuildContext context) {
   return Card(
     elevation: 10,
     child: ListTile(
-      leading: CircleAvatar(child: Image.asset("assets/images/dummy_per.png")),
+      leading: CircleAvatar(
+        backgroundImage:
+            model.photo != null ? NetworkImage(model.photo ?? "") : null,
+        child: model.photo == null
+            ? Image.asset("assets/images/dummy_per.png")
+            : null,
+      ),
       trailing: Text("Sayfa sayısı: ${model.pageCount}"),
       title: Text(model.bookName ?? "null book name"),
-      subtitle: Text(model.overview ?? "null overview"),
+      subtitle: SingleChildScrollView(
+        child: SizedBox(
+          height: context.dynamicHeight(0.1),
+          child: Text(
+            model.overview ?? "null overview",
+            overflow: TextOverflow.fade,
+          ),
+        ),
+      ),
     ),
   );
 }
