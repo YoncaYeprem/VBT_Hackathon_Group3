@@ -15,10 +15,9 @@ class BookDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<BookDetailCubit>(
-      create: (context) => BookDetailCubit(),
+      create: (context) => BookDetailCubit(book),
       child: BlocConsumer<BookDetailCubit, BookDetailState>(
-        listener: (context, state) {
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return buildScaffold(context);
         },

@@ -3,28 +3,28 @@ import 'book_box.dart';
 
 
 abstract class LocalStorage {
-  Future<void> addTask({required BookModel book});
-  Future<BookModel?> getTask({required String id});
-  Future<List<BookModel>> getAllTasks();
-  Future<bool> deleteTask({required BookModel book});
-  Future<BookModel> updateTask({required BookModel book});
+  Future<void> addBook({required BookModel book});
+  Future<BookModel?> getABook({required String id});
+  Future<List<BookModel>> getAllBooks();
+  Future<bool> deleteBook({required BookModel book});
+  Future<BookModel> updateBook({required BookModel book});
 }
 
 class HiveLocalStorage extends LocalStorage {
 
   @override
-  Future<void> addTask({required BookModel book}) async {
+  Future<void> addBook({required BookModel book}) async {
     await Boxes.getBookHive().put(book.id, book);
   }
 
   @override
-  Future<bool> deleteTask({required BookModel book}) async {
+  Future<bool> deleteBook({required BookModel book}) async {
     await book.delete();
     return true;
   }
 
   @override
-  Future<List<BookModel>> getAllTasks() async {
+  Future<List<BookModel>> getAllBooks() async {
     List<BookModel> allBooks = <BookModel>[];
     allBooks = Boxes.getBookHive().values.toList();
 
@@ -36,7 +36,7 @@ class HiveLocalStorage extends LocalStorage {
   }
 
   @override
-  Future<BookModel?> getTask({required String id}) async {
+  Future<BookModel?> getABook({required String id}) async {
     if (Boxes.getBookHive().containsKey(id)) {
       return Boxes.getBookHive().get(id);
     } else {
@@ -45,7 +45,7 @@ class HiveLocalStorage extends LocalStorage {
   }
 
   @override
-  Future<BookModel> updateTask({required BookModel book}) async {
+  Future<BookModel> updateBook({required BookModel book}) async {
     await book.save();
     return book;
   }
