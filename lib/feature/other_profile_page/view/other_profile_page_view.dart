@@ -1,148 +1,47 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/product/widget/custom_profile_book_list.dart';
+import 'package:vbt_hackathon_group3/product/widget/custom_profile_widget.dart';
+
+import '../../../product/widget/custom_profile_background.dart';
+import '../../../product/widget/custom_profile_text.dart';
+import '../../profile/view/profile_view.dart';
 
 class OtherProfilePage extends StatelessWidget {
-  OtherProfilePage({Key? key, required this.user}) : super(key: key);
+  const OtherProfilePage({Key? key, required this.user}) : super(key: key);
   final User? user;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      appBar: appBarBuild(),
+      appBar: appBarBuild(context),
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          redAndWhiteBackground(context),
-          profileCard(context),
-          ProfileText(context),
+          ProfileBackground(body: const ProfileBookList()),
+          CustomProfileCard(),
+          const CustomProfileText(),
         ],
       ),
     );
   }
 
-  Align ProfileText(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: context.horizontalPaddingMedium,
-        child: Text(
-          "Profile",
-          style: Theme.of(context)
-              .textTheme
-              .headline4!
-              .copyWith(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
-  Container profileCard(BuildContext context) {
-    return Container(
-      padding: context.verticalPaddingHigh,
-      child: Stack(alignment: Alignment.topCenter, children: [
-        SizedBox(
-          width: context.dynamicWidth(0.9),
-          height: context.dynamicHeight(0.3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Card(
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(context.dynamicWidth(0.05))),
-                child: Container(
-                  width: context.dynamicWidth(0.9),
-                  height: context.dynamicHeight(0.23),
-                  padding: context.paddingLow,
-                  child: Padding(
-                    padding: context.paddingMedium,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          user?.displayName ?? "Null name",
-                          style: Theme.of(context).textTheme.headline4,
-                        ),
-                        Text(user?.email ?? "null mail"),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        CircleAvatar(
-          child: Image.asset(user?.photoURL ?? "assets/images/dummy_per.png"),
-          radius: context.dynamicWidth(0.15),
-        )
-      ]),
-    );
-  }
-
-  AppBar appBarBuild() {
+  AppBar appBarBuild(BuildContext context) {
     return AppBar(
-      leading:
-          IconButton(onPressed: () {}, icon: Icon(Icons.chevron_left_sharp)),
+      leading: IconButton(
+          onPressed: () {}, icon: const Icon(Icons.chevron_left_sharp)),
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_basket)),
-        IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
+        IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_basket)),
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfileView()));
+            },
+            icon: const Icon(Icons.notifications))
       ],
       backgroundColor: Colors.red,
       elevation: 0,
-    );
-  }
-
-  Column redAndWhiteBackground(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-            flex: 2,
-            child: Container(
-              decoration: BoxDecoration(color: Colors.red),
-            )),
-        Expanded(
-          flex: 5,
-          child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-            // child: dummyList(context),
-            child: Expanded(
-                child: Padding(
-              padding: EdgeInsets.only(top: context.dynamicHeight(0.15)),
-              child: ListView(
-                children: [
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                  dummyCarBook(),
-                ],
-              ),
-            )),
-          ),
-        )
-      ],
-    );
-  }
-
-  Card dummyCarBook() {
-    return Card(
-      elevation: 10,
-      child: ListTile(
-        leading:
-            CircleAvatar(child: Image.asset("assets/images/dummy_per.png")),
-        trailing: Text("Boook info"),
-        title: Text("Book Title"),
-        subtitle: Text("Book info"),
-      ),
     );
   }
 }
