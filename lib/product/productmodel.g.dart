@@ -7,8 +7,6 @@ part of 'productmodel.dart';
 // **************************************************************************
 
 BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
-      id: json['id'] as String?,
-      userId: json['userId'] as String?,
       bookName: json['bookName'] as String?,
       overview: json['overview'] as String?,
       author: json['author'] as String?,
@@ -20,11 +18,9 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
       photo: json['photo'] as String?,
       language: json['language'] as String?,
       price: (json['price'] as num?)?.toDouble(),
-    );
+    )..owenerUID = json['owenerUID'] as String?;
 
 Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
-      'id': instance.id,
-      'userId': instance.userId,
       'bookName': instance.bookName,
       'overview': instance.overview,
       'author': instance.author,
@@ -36,4 +32,5 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
       'photo': instance.photo,
       'language': instance.language,
       'price': instance.price,
+      'owenerUID': instance.owenerUID,
     };

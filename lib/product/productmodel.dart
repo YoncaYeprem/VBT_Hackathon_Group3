@@ -8,8 +8,8 @@ part 'productmodel.g.dart';
 @HiveType(typeId: 0)
 class BookModel extends HiveObject {
   BookModel({
-    this.id,
-    this.userId,
+    // this.id,
+    // this.userId,
     this.bookName,
     this.overview,
     this.author,
@@ -23,10 +23,10 @@ class BookModel extends HiveObject {
     this.price,
     // this.createdAt,
   });
-  @HiveField(0)
-  String? id;
-  @HiveField(1)
-  String? userId;
+  // @HiveField(0)
+  // String? id;
+  // @HiveField(1)
+  // String? userId;
   @HiveField(2)
   String? bookName;
   @HiveField(3)
@@ -49,6 +49,8 @@ class BookModel extends HiveObject {
   String? language;
   @HiveField(12)
   double? price;
+  @HiveField(13)
+  String? owenerUID;
   // @HiveField(13)
   // DateTime? createdAt;
 
@@ -62,6 +64,8 @@ class BookModel extends HiveObject {
     return _$BookModelToJson(this);
   }
 
+  ///Firestore dan veri çekmek için konuldu.
+  ///from json metoduyla aşağı yukarı aynı işi yapıyor
   factory BookModel.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;
     return _$BookModelFromJson(data);
