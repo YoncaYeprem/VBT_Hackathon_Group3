@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/feature/other_profile_page/cubit/other_profile_page_cubit_cubit.dart';
 
 class OtherProfilePage extends StatelessWidget {
   OtherProfilePage({Key? key, required this.user}) : super(key: key);
@@ -8,6 +10,18 @@ class OtherProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => OtherProfilePageCubit(),
+      child: BlocConsumer<OtherProfilePageCubit, OtherProfilePageCubitState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return buildScaffold(context);
+        },
+      ),
+    );
+  }
+
+  Scaffold buildScaffold(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
       appBar: appBarBuild(),
