@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/feature/authentication/register/model/user_model.dart';
 
 class CustomProfileCard extends StatelessWidget {
-  User? user;
+  UserModel? user;
   CustomProfileCard({
     Key? key,
     this.user,
@@ -35,7 +36,7 @@ class CustomProfileCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          user?.displayName ?? "Null name",
+                          user?.firstname ?? "Null name",
                           style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(user?.email ?? "null mail"),
@@ -48,7 +49,11 @@ class CustomProfileCard extends StatelessWidget {
           ),
         ),
         CircleAvatar(
-          child: Image.asset(user?.photoURL ?? "assets/images/dummy_per.png"),
+          backgroundImage:
+              user?.photo != null ? NetworkImage(user?.photo ?? "") : null,
+          child: user?.photo == null
+              ? Image.asset("assets/images/dummy_per.png")
+              : null,
           radius: context.dynamicWidth(0.15),
         )
       ]),

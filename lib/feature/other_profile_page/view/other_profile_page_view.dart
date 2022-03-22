@@ -20,6 +20,22 @@ class OtherProfilePage extends StatelessWidget {
       child: BlocConsumer<OtherProfilePageCubit, OtherProfilePageCubitState>(
         listener: (context, state) {},
         builder: (context, state) {
+          if (state is FailedState) {
+            return Scaffold(
+              body: Center(
+                child: Text(
+                  "Failed",
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ),
+            );
+          } else if (state is GettingDataLoadingState) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
           return buildScaffold(context);
         },
       ),
@@ -33,10 +49,20 @@ class OtherProfilePage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          ProfileBackground(body: const ProfileBookList()),
-          CustomProfileCard(),
+          ProfileBackground(
+              body: ProfileBookList(
+            bookList: context.read<OtherProfilePageCubit>().listBookModel ?? [],
+          )),
+          CustomProfileCard(
+            user: context.read<OtherProfilePageCubit>().user,
+          ),
           const CustomProfileText(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<OtherProfilePageCubit>().getAllBookData();
+        },
       ),
     );
   }

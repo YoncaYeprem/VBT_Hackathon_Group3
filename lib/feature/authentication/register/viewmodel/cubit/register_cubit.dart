@@ -73,14 +73,14 @@ class RegisterCubit extends Cubit<RegisterState> {
         uploadPath = await FirebaseStorageFunctions()
             .uploadGallery(imagePath: imagePath);
       }
-       user = UserModel(
-            id: userId,
-            firstName: firstNameController.text,
-            lastName: lastNameController.text,
-            userName: usernameController.text,
-            email: emailController.text,
-            password: passwordController.text,
-            photo: uploadPath ?? "");
+      user = UserModel(
+          id: userId,
+          firstname: firstNameController.text,
+          lastName: lastNameController.text,
+          userName: usernameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          photo: uploadPath ?? "");
 
       await FirebaseStorageFunctions()
           .saveUserInStorage(userId, user)
@@ -96,12 +96,12 @@ class RegisterCubit extends Cubit<RegisterState> {
               MaterialPageRoute(
                 builder: (context) => LoginView(),
               )));
-    }else{
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Please Fill Required Places"),
-              ),
-            );
+        SnackBar(
+          content: Text("Please Fill Required Places"),
+        ),
+      );
     }
     changeLoading();
     emit(RegisterComplete());

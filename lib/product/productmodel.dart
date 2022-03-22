@@ -1,25 +1,27 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'productmodel.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 0)
 class BookModel extends HiveObject {
-  BookModel(
-      {this.id,
-      this.userId,
-      this.bookName,
-      this.overview,
-      this.author,
-      this.exchange,
-      this.publishYear,
-      this.publisher,
-      this.pageCount,
-      this.category,
-      this.photo,
-      this.language,
-      this.price,
-      required this.createdAt});
+  BookModel({
+    this.id,
+    this.userId,
+    this.bookName,
+    this.overview,
+    this.author,
+    this.exchange,
+    this.publishYear,
+    this.publisher,
+    this.pageCount,
+    this.category,
+    this.photo,
+    this.language,
+    this.price,
+    // this.createdAt,
+  });
   @HiveField(0)
   String? id;
   @HiveField(1)
@@ -46,16 +48,16 @@ class BookModel extends HiveObject {
   String? language;
   @HiveField(12)
   double? price;
-  @HiveField(13)
-  DateTime createdAt;
+  // @HiveField(13)
+  // DateTime? createdAt;
 
   @override
-  BookModel fromJson(Map<String, dynamic> json) {
+  factory BookModel.fromJson(Map<String, dynamic> json) {
     return _$BookModelFromJson(json);
   }
 
   @override
-  Map<String, dynamic>? toJson() {
+  Map<String, dynamic> toJson() {
     return _$BookModelToJson(this);
   }
 }
