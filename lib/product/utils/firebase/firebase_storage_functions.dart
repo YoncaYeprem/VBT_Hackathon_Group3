@@ -56,24 +56,18 @@ class FirebaseStorageFunctions {
     return null;
   }
 
-  Future<BookModel?> getBookModels(String bookId) async {
-    if (bookId.isEmpty) {
+  Future<List<BookModel>?> getBookModels(
+      {String? bookId, required String ownedUID}) async {
+    List<BookModel>? _temp;
+    CollectionReference _collRef = firestore.collection("books");
+    Query query = _collRef.where(ownedUID); //sıralama yapmak için
+    QuerySnapshot snapshot = await _collRef.get();
+    final response = snapshot.docs.map((e) => e.data()).toList();
+
+    if (response is List) {
+      return (response as List).map((e) => BookModel.fromJson(e)).toList();
+    } else {
       return null;
     }
-    try {
-      final books = FirebaseFirestore.instance
-          .collection("books")
-          .withConverter<BookModel>(
-              fromFirestore: (snapshot, options) =>
-                  BookModel.fromFirestore(snapshot),
-              toFirestore: (model, _) => BookModel().toJson());
-      final model = await books.doc(bookId).get().then((value) => value.data());
-      print("Kitap ismi: ${model?.bookName}");
-      return model;
-    } on FirebaseStorage catch (e) {
-      log(e.bucket);
-    }
-    print("null returns");
-    return null;
   }
 }

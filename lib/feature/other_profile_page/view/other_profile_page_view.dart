@@ -18,7 +18,11 @@ class OtherProfilePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => OtherProfilePageCubit(),
       child: BlocConsumer<OtherProfilePageCubit, OtherProfilePageCubitState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is FailedState) {
+            state.showMessage(context);
+          }
+        },
         builder: (context, state) {
           if (state is FailedState) {
             return Scaffold(
@@ -61,7 +65,9 @@ class OtherProfilePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<OtherProfilePageCubit>().getAllBookData();
+          context
+              .read<OtherProfilePageCubit>()
+              .getAllBookData(context.read<OtherProfilePageCubit>().tempUID);
         },
       ),
     );

@@ -17,6 +17,11 @@ class UserDownloadedState extends OtherProfilePageCubitState {
   UserDownloadedState(this.model);
 }
 
-class FailedState extends OtherProfilePageCubitState {}
+class FailedState extends OtherProfilePageCubitState {
+  void showMessage(BuildContext context) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("Failed")));
+  }
+}
 
 class GettingDataLoadingState extends OtherProfilePageCubitState {}
