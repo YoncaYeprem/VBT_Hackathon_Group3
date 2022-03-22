@@ -7,7 +7,7 @@ import 'package:vbt_hackathon_group3/product/widget/custom_profile_widget.dart';
 import '../../../product/widget/custom_profile_background.dart';
 import '../../../product/widget/custom_profile_text.dart';
 import '../../profile/view/profile_view.dart';
-import '../cubit/other_profile_page_cubit_cubit.dart';
+import '../cubit/other_profile_page_cubit.dart';
 
 class OtherProfilePage extends StatelessWidget {
   const OtherProfilePage({Key? key, required this.user}) : super(key: key);
