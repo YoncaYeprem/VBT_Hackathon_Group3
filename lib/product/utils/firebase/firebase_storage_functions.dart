@@ -36,7 +36,7 @@ class FirebaseStorageFunctions {
     await firestore.collection("users").doc(userId).set(user.toJson());
   }
 
-  Future<UserModel?> getUserModel(String doc) async {
+  Future<UserModel?> getUserModel(String? doc) async {
     try {
       final user = FirebaseFirestore.instance
           .collection("users")
@@ -60,7 +60,6 @@ class FirebaseStorageFunctions {
       {String? bookId, required String ownedUID}) async {
     List<BookModel>? _temp;
     CollectionReference _collRef = firestore.collection("books");
-    Query query = _collRef.where(ownedUID); //sıralama yapmak için
     QuerySnapshot snapshot = await _collRef.get();
     final response = snapshot.docs.map((e) => e.data()).toList();
 

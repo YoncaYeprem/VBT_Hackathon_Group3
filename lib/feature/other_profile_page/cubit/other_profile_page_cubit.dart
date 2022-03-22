@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:vbt_hackathon_group3/feature/authentication/register/model/user_model.dart';
@@ -12,11 +14,10 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
   }
   List<BookModel>? listBookModel;
   UserModel? user;
-  String tempUID = "UI6gjx43h6gYEigYKNphCOWn8tH2";
   Future<void> getUserData() async {
     try {
       // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
-      user = await FirebaseStorageFunctions().getUserModel(tempUID);
+      user = await FirebaseStorageFunctions().getUserModel(user?.id);
 
       print(user?.id);
       if (user != null) {
@@ -29,15 +30,20 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
     }
   }
 
-  Future<void> getAllBookData(String ownedBookUID) async {
-    listBookModel =
-        await FirebaseStorageFunctions().getBookModels(ownedUID: tempUID);
+  Future<void> getAllBookData(String? ownedBookUID) async {
+    listBookModel = await FirebaseStorageFunctions()
+        .getBookModels(ownedUID: ownedBookUID ?? "");
+    if (listBookModel != null) {
+      listBookModel?.removeWhere((element) => element.ownerUID != ownedBookUID);
+      inspect(listBookModel);
+    }
+
     emit(BookDownloadedState(listBookModel ?? []));
   }
 
   void init() {
     emit(GettingDataLoadingState());
     getUserData();
-    // getAllBookData();
+    getAllBookData(user?.id);
   }
 }

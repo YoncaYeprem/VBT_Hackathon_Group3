@@ -21,6 +21,7 @@ class BookModel extends HiveObject {
     this.photo,
     this.language,
     this.price,
+    this.ownerUID,
     // this.createdAt,
   });
   // @HiveField(0)
@@ -50,7 +51,7 @@ class BookModel extends HiveObject {
   @HiveField(12)
   double? price;
   @HiveField(13)
-  String? owenerUID;
+  String? ownerUID;
   // @HiveField(13)
   // DateTime? createdAt;
 

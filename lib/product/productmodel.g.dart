@@ -18,7 +18,8 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
       photo: json['photo'] as String?,
       language: json['language'] as String?,
       price: (json['price'] as num?)?.toDouble(),
-    )..owenerUID = json['owenerUID'] as String?;
+      ownerUID: json['ownerUID'] as String?,
+    );
 
 Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
       'bookName': instance.bookName,
@@ -32,5 +33,5 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
       'photo': instance.photo,
       'language': instance.language,
       'price': instance.price,
-      'owenerUID': instance.owenerUID,
+      'ownerUID': instance.ownerUID,
     };

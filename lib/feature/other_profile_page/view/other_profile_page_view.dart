@@ -67,7 +67,7 @@ class OtherProfilePage extends StatelessWidget {
         onPressed: () {
           context
               .read<OtherProfilePageCubit>()
-              .getAllBookData(context.read<OtherProfilePageCubit>().tempUID);
+              .getAllBookData(context.read<OtherProfilePageCubit>().user?.id);
         },
       ),
     );

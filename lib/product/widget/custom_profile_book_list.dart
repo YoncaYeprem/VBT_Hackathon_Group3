@@ -29,7 +29,10 @@ Widget listCard(BookModel model) {
       leading: CircleAvatar(child: Image.asset("assets/images/dummy_per.png")),
       trailing: Text("Sayfa sayısı: ${model.pageCount}"),
       title: Text(model.bookName ?? "null book name"),
-      subtitle: Text(model.overview ?? "null overview"),
+      subtitle: SingleChildScrollView(
+        child: Text(model.overview ?? "null overview",
+            overflow: TextOverflow.fade, maxLines: 5),
+      ),
     ),
   );
 }
