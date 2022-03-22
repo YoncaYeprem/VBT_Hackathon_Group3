@@ -56,6 +56,9 @@ class FirebaseStorageFunctions {
     return null;
   }
 
+  /// fetchs all book documents
+  /// Returns BookList
+  /// TODO: Filter with owned id
   Future<List<BookModel>?> getBookModels(
       {String? bookId, required String ownedUID}) async {
     List<BookModel>? _temp;
@@ -64,7 +67,7 @@ class FirebaseStorageFunctions {
     final response = snapshot.docs.map((e) => e.data()).toList();
 
     if (response is List) {
-      return (response as List).map((e) => BookModel.fromJson(e)).toList();
+      return response.map((e) => BookModel.fromJson(e)).toList();
     } else {
       return null;
     }
