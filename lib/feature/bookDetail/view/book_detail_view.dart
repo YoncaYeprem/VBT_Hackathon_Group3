@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
+import '../../myFavoritesPage/view/my_favorites_view.dart';
 import '../../../../product/widget/custom_text_row.dart';
-import '../../addBook/model/product_model.dart';
+import '../../addBook/model/book_model.dart';
 import '../viewmodel/cubit/book_detail_cubit.dart';
 
 part './subView/book_image_container.dart';
+part './subView/book_overview_text.dart';
+part './subView/book_go_profile_button.dart';
 
 class BookDetailView extends StatelessWidget {
   final BookModel book;
-  BookDetailView({Key? key, required this.book}) : super(key: key);
+  const BookDetailView({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,32 +33,34 @@ class BookDetailView extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading:
-              IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+          leading: IconButton(
+              onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
           actions: [
             IconButton(
-              onPressed: () {
-                context.read<BookDetailCubit>().changeSave();
+              onPressed: () async {
+                await context
+                    .read<BookDetailCubit>()
+                    .addOrDeleteFromFavorites();
               },
               icon: context.read<BookDetailCubit>().isSaved
-                  ? Icon(Icons.bookmark)
-                  : Icon(Icons.bookmark_border),
+                  ? const Icon(Icons.bookmark)
+                  : const Icon(Icons.bookmark_border),
             ),
           ]),
       body: SafeArea(
         child: Padding(
           padding: context.paddingLow,
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                   child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    buildBookImage(context, book.photo ?? ""),
+                    buildBookImage(context, book.photo),
                     Text(
                       book.bookName ?? "",
+                      textAlign: TextAlign.center,
                       style: context.textTheme.headline5,
                     ),
                     Text(
@@ -79,6 +84,16 @@ class BookDetailView extends StatelessWidget {
                             value: DateFormat("dd-MM-yyyy - kk:mm")
                                 .format(book.createdAt),
                           ),
+                          CustomRowText(
+                            icon: Icons.date_range_sharp,
+                            label: 'Language:',
+                            value: book.language ?? "",
+                          ),
+                          CustomRowText(
+                            icon: Icons.date_range_sharp,
+                            label: 'Publish Year:',
+                            value: book.publishYear ?? "",
+                          ),
                         ],
                       ),
                     ),
@@ -86,7 +101,7 @@ class BookDetailView extends StatelessWidget {
                   ],
                 ),
               )),
-              stickyBottomButtonsRow(),
+              stickyBottomButtonsRow(context),
             ],
           ),
         ),
@@ -94,59 +109,46 @@ class BookDetailView extends StatelessWidget {
     );
   }
 
-  Container overviewText(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: context.paddingNormal,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Overview ",
-              style: context.textTheme.headlineSmall,
-              textAlign: TextAlign.start,
-            ),
-            SizedBox(
-              height: context.dynamicHeight(0.01),
-            ),
-            Text(
-              book.overview ?? "",
-              style: context.textTheme.headline6,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Row stickyBottomButtonsRow() {
+  Row stickyBottomButtonsRow(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Expanded(
-            child:
-                ElevatedButton(onPressed: () {}, child: Text("Go To Profile"))),
+        goToBookOwnerButton(context),
         const SizedBox(
           width: 20,
         ),
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  const WidgetSpan(
-                    child: Icon(Icons.shopping_cart),
-                  ),
-                  TextSpan(
-                    text: "${book.price ?? ""} ",
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+        exchangeMethodButton(),
       ],
+    );
+  }
+
+  Expanded exchangeMethodButton() {
+    return Expanded(
+      child: ElevatedButton(
+        onPressed: () {},
+        child: book.exchange!
+            ? const Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Make Exchange ",
+                    )
+                  ],
+                ),
+              )
+            : Text.rich(
+                TextSpan(
+                  children: [
+                    const WidgetSpan(
+                      child: Icon(Icons.shopping_cart),
+                    ),
+                    TextSpan(
+                      text: "${book.price ?? ""} ",
+                    )
+                  ],
+                ),
+              ),
+      ),
     );
   }
 }
