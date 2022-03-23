@@ -4,3 +4,5 @@ part of 'google_map_cubit.dart';
 abstract class GoogleMapState {}
 
 class GoogleMapInitial extends GoogleMapState {}
+
+class ChangeMapTypeState extends GoogleMapState {}
