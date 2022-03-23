@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
+import '../../addBook/book_model/productmodel.dart';
 import '../../myFavoritesPage/view/my_favorites_view.dart';
 import '../../../../product/widget/custom_text_row.dart';
-import '../../addBook/model/book_model.dart';
 import '../viewmodel/cubit/book_detail_cubit.dart';
 
 part './subView/book_image_container.dart';
@@ -81,8 +81,7 @@ class BookDetailView extends StatelessWidget {
                           CustomRowText(
                             icon: Icons.date_range_sharp,
                             label: 'Uploaded At:',
-                            value: DateFormat("dd-MM-yyyy - kk:mm")
-                                .format(book.createdAt),
+                            value: book.createdAt,
                           ),
                           CustomRowText(
                             icon: Icons.date_range_sharp,

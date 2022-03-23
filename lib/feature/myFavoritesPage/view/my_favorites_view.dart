@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/feature/home/home_view/home_view.dart';
 
-import '../../addBook/model/book_model.dart';
+import '../../addBook/book_model/productmodel.dart';
 import '../../bookDetail/view/book_detail_view.dart';
 import '../viewmodel/cubit/my_favorites_cubit.dart';
 
@@ -20,7 +21,9 @@ class MyFavoritesView extends StatelessWidget {
             "My Favorite Books",
             style: TextStyle(fontSize: 24),
           ),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+          actions: [IconButton(onPressed: () {
+            context.navigateToPage(HomeView());
+          }, icon: Icon(Icons.add))],
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),

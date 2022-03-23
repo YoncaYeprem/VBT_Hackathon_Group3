@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../addBook/book_model/productmodel.dart';
 import '../../../../product/utils/hive/book/book_hive_functions.dart';
-import '../../../addBook/model/book_model.dart';
 
 part 'my_favorites_state.dart';
 

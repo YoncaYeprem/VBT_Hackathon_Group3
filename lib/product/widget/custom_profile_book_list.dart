@@ -1,6 +1,7 @@
-import 'package:kartal/kartal.dart';
 import 'package:flutter/material.dart';
-import '../productmodel.dart';
+import 'package:kartal/kartal.dart';
+
+import '../../feature/addBook/book_model/productmodel.dart';
 
 class ProfileBookList extends StatelessWidget {
   ProfileBookList({Key? key, required this.bookList}) : super(key: key);

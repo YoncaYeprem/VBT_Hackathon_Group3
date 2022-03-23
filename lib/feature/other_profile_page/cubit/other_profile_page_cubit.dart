@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../authentication/register/model/user_model.dart';
-import '../../../product/productmodel.dart';
+
+import '../../addBook/book_model/productmodel.dart';
 import '../../../product/utils/firebase/firebase_storage_functions.dart';
+import '../../authentication/register/model/user_model.dart';
 
 part 'other_profile_page_cubit_state.dart';
 
@@ -18,7 +19,7 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
   Future<void> getUserData() async {
     try {
       // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
-      user = await FirebaseStorageFunctions().getUserModel(user?.id);
+      user = await FirebaseStorageFunctions().getUserModel();
 
       print(user?.id);
       if (user != null) {
@@ -35,7 +36,7 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
     listBookModel = await FirebaseStorageFunctions()
         .getBookModels(ownedUID: user?.id ?? "");
     if (listBookModel != null) {
-      listBookModel?.removeWhere((element) => element.ownerUID != user?.id);
+      listBookModel?.removeWhere((element) => element.userId != user?.id);
       inspect(listBookModel);
     }
 

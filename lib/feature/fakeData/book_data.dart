@@ -1,4 +1,5 @@
-import '../addBook/model/book_model.dart';
+
+import '../addBook/book_model/productmodel.dart';
 
 final book1 = BookModel(
     id: "book1",
@@ -16,4 +17,4 @@ final book1 = BookModel(
         "https://i.pinimg.com/474x/a7/91/62/a7916230aedcdce47a4dfbff5247f0ce.jpg",
     language: "English",
     price: 12.99,
-    createdAt: DateTime.now());
+    createdAt: "");

@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../product/widget/custom_profile_book_list.dart';
-import '../../../product/widget/custom_profile_widget.dart';
 
 import '../../../product/widget/custom_profile_background.dart';
+import '../../../product/widget/custom_profile_book_list.dart';
 import '../../../product/widget/custom_profile_text.dart';
+import '../../../product/widget/custom_profile_widget.dart';
 import '../../profile/view/profile_view.dart';
 import '../cubit/other_profile_page_cubit.dart';
 

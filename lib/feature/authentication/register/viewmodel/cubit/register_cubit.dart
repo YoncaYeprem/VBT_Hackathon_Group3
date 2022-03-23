@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../../product/utils/firebase/firebase_auth.dart';
 import '../../../../../product/utils/firebase/firebase_storage_functions.dart';

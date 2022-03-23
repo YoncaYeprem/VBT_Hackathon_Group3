@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'book_model.dart';
+part of 'productmodel.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
@@ -30,7 +30,7 @@ class BookModelAdapter extends TypeAdapter<BookModel> {
       photo: fields[10] as String?,
       language: fields[11] as String?,
       price: fields[12] as double?,
-      createdAt: fields[13] as DateTime,
+      createdAt: fields[13] as String?,
     );
   }
 
@@ -97,7 +97,7 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
       photo: json['photo'] as String?,
       language: json['language'] as String?,
       price: (json['price'] as num?)?.toDouble(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdAt: json['createdAt'] as String?,
     );
 
 Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
@@ -114,5 +114,5 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
       'photo': instance.photo,
       'language': instance.language,
       'price': instance.price,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': instance.createdAt,
     };

@@ -7,6 +7,7 @@ class CustomTextField extends TextFormField {
   final String hintString;
   final TextInputType textInputType;
   final IconButton? suffix;
+  final int? maxLines;
   final BuildContext context;
   final FormFieldValidator<String>? Validator;
 
@@ -16,6 +17,7 @@ class CustomTextField extends TextFormField {
       required this.context,
       this.suffix,
       this.Validator,
+      this.maxLines,
       this.textInputType = TextInputType.text,
       required this.textController,
       required this.isObsecure,
@@ -26,6 +28,7 @@ class CustomTextField extends TextFormField {
           validator: Validator,
           controller: textController,
           obscureText: isObsecure,
+          maxLines: maxLines,
           keyboardType: textInputType,
           decoration: InputDecoration(
             suffixIcon: suffix,
@@ -36,3 +39,4 @@ class CustomTextField extends TextFormField {
           ),
         );
 }
+

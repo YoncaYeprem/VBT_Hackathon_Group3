@@ -1,4 +1,4 @@
-import '../../../../feature/addBook/model/book_model.dart';
+import '../../../../feature/addBook/book_model/productmodel.dart';
 import 'book_box.dart';
 
 
