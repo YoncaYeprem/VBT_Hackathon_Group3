@@ -64,13 +64,6 @@ class OtherProfilePage extends StatelessWidget {
           const CustomProfileText(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context
-              .read<OtherProfilePageCubit>()
-              .getAllBookData(context.read<OtherProfilePageCubit>().user?.id);
-        },
-      ),
     );
   }
 

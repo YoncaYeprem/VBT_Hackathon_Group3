@@ -20,7 +20,6 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
       // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
       user = await FirebaseStorageFunctions().getUserModel(user?.id);
 
-      print(user?.id);
       if (user != null) {
         emit(UserDownloadedState(user!));
       } else {
