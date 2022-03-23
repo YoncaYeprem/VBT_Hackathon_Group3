@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       title: 'Hackathon App',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.createThemeData(AppThemeLight()),
-      home: BookDetailView(book : book1),
+      home: BookDetailView(book: book1),
     );
   }
 }

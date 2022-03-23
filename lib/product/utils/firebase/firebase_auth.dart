@@ -1,36 +1,45 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Authentication {
   Future<User?> eMailSignIn(
       {required String eMail,
       required String password,
-      required BuildContext context}) async {
+      BuildContext? context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
+
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: eMail, password: password);
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("No user found")));
+        if (context != null) {
+          _sendSnacMessage(context, LocaleKeys.firebase_noUserFound.tr());
+        }
       }
     }
     return user;
   }
 
-  Future<void> signUp(
-      String email, String password, BuildContext context) async {
+  Future signUp(String email, String password, BuildContext context) async {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+        _sendSnacMessage(context, LocaleKeys.firebase_verifyMailMessage.tr());
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Mail already using")));
+        _sendSnacMessage(context, LocaleKeys.firebase_mailAlreadyUsing.tr());
       }
     }
   }
@@ -38,13 +47,18 @@ class Authentication {
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
-    } catch (e) {
-      print(e);
+    } on FirebaseAuthException catch (e) {
+      log("exception code: (SignOut Exception) ${e.code}");
     }
   }
 
   Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
+  }
+
+  void _sendSnacMessage(BuildContext context, String message) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 }
