@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import '../../../../feature/addBook/model/product_model.dart';
+import '../../../../feature/addBook/model/book_model.dart';
 
 
 class Boxes {
