@@ -6,12 +6,48 @@
         "signInButton": "Sign In",
         "emailText": "Email",
         "passwordText": "Password",
-        "forgetPassowrd":"Forget Password?"
+        "forgetPassowrd": "Forget Password?"
     },
     "register": {
         "signUpButton": "Sign Up",
         "emailText": "Email",
         "passwordText": "Password",
         "username": "Username"
+    },
+    "addBook": {
+        "bookName": "Book Name",
+        "autherName": "Auther",
+        "bookOverview": "The Book Overview",
+        "language": "Language",
+        "pageCount": "Page Count",
+        "price": "Price",
+        "selectButton": "Add Image",
+        "addButton": "Sell the Book",
+        "publisher": "Publisher",
+        "publisherYear": "Publisher Year",
+        "addBookAppBar": "Add Book",
+        "selectCategory": "Select Category",
+        "exchange": "Exchange",
+        "sell": "Sell",
+        "category": {
+            "remembrance": "Remembrance",
+            "novel": "Noval",
+            "research": "Research",
+            "science": "Science",
+            "biography": "Biography",
+            "attempt": "Attempt",
+            "education": "Education",
+            "philosophy": "Philosophy",
+            "travel": "Travel",
+            "story": "Story",
+            "poetry": "Poetry",
+            "religion": "Religion",
+            "child": "Child",
+            "tale": "Tale",
+            "selfImprovement": "Self-Improvement",
+            "psychology": "Psychology",
+            "history": "History",
+            "humor": "Humor"
+        }
     }
 }
