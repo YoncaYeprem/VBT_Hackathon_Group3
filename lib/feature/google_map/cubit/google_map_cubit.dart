@@ -10,7 +10,7 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   GoogleMapCubit() : super(GoogleMapInitial());
 
   Completer<GoogleMapController> controller = Completer();
-  bool isHybrid = true;
+  bool isHybrid = false;
 
   final defaultCameraPos = const CameraPosition(
     target: LatLng(41.015137, 28.979530),
@@ -31,16 +31,20 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   MapType get getMapType => isHybrid ? MapType.hybrid : MapType.normal;
   changeMapType() {
     isHybrid = !isHybrid;
-    emit(ChangeMapTypeState());
-
     if (isHybrid) {
       emit(ChangeMapTypeState());
-
       return MapType.hybrid;
     } else {
       emit(ChangeMapTypeState());
-
       return MapType.satellite;
     }
+  }
+
+  Set<Marker> getMarkers = {};
+
+  void createMarker(LatLng latlng) {
+    getMarkers
+        .add(Marker(markerId: const MarkerId("new marker"), position: latlng));
+    emit(AddMarkerState());
   }
 }

@@ -1,18 +1,13 @@
-import 'dart:async';
+import 'package:kartal/kartal.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
 
-class GoogleMapView extends StatefulWidget {
+class GoogleMapView extends StatelessWidget {
   GoogleMapView({Key? key}) : super(key: key);
 
-  @override
-  State<GoogleMapView> createState() => _GoogleMapViewState();
-}
-
-class _GoogleMapViewState extends State<GoogleMapView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -33,22 +28,49 @@ class _GoogleMapViewState extends State<GoogleMapView> {
           children: [
             GoogleMap(
               mapType: context.read<GoogleMapCubit>().getMapType,
+              markers: context.read<GoogleMapCubit>().getMarkers,
+              onTap: (latlong) {
+                context.read<GoogleMapCubit>().createMarker(latlong);
+              },
               initialCameraPosition:
                   context.read<GoogleMapCubit>().defaultCameraPos,
               onMapCreated: (GoogleMapController controller) {
                 context.read<GoogleMapCubit>().controller.complete(controller);
               },
             ),
-            Align(
-              alignment: Alignment.topRight,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                    onPressed: context.read<GoogleMapCubit>().changeMapType,
-                    icon: Icon(Icons.map_outlined)),
-              ),
-            ),
+            changeMapTypeBTN(context),
+            exitFromViewIconBTN(context),
           ],
+        ),
+      ),
+    );
+  }
+
+  Align changeMapTypeBTN(BuildContext context) {
+    return Align(
+      alignment: Alignment.topRight,
+      child: Padding(
+        padding: context.paddingLow,
+        child: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: IconButton(
+              onPressed: context.read<GoogleMapCubit>().changeMapType,
+              icon: Icon(Icons.map_outlined)),
+        ),
+      ),
+    );
+  }
+
+  Align exitFromViewIconBTN(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: context.paddingLow,
+        child: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: IconButton(
+              onPressed: context.read<GoogleMapCubit>().changeMapType,
+              icon: Icon(Icons.chevron_left)),
         ),
       ),
     );
