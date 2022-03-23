@@ -6,8 +6,7 @@ abstract class LocalStorage {
   Future<void> addBook({required BookModel book});
   Future<BookModel?> getABook({required String id});
   Future<List<BookModel>> getAllBooks();
-  Future<bool> deleteBook({required BookModel book});
-  Future<BookModel> updateBook({required BookModel book});
+  Future deleteBook({required BookModel book});
 }
 
 class HiveLocalStorage extends LocalStorage {
@@ -18,9 +17,21 @@ class HiveLocalStorage extends LocalStorage {
   }
 
   @override
-  Future<bool> deleteBook({required BookModel book}) async {
-    await book.delete();
-    return true;
+  Future<BookModel?> getABook({required String id}) async {
+    if (Boxes.getBookHive().containsKey(id)) {
+      return await Boxes.getBookHive().get(id);
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Future deleteBook({required BookModel book}) async {
+   
+  final box = Boxes.getBookHive();
+  await box.delete(book.id);
+  return true;
+ 
   }
 
   @override
@@ -28,25 +39,10 @@ class HiveLocalStorage extends LocalStorage {
     List<BookModel> allBooks = <BookModel>[];
     allBooks = Boxes.getBookHive().values.toList();
 
-    if (allBooks.isNotEmpty) {
-      allBooks.sort(
-          (BookModel a, BookModel b) => b.createdAt.compareTo(a.createdAt));
-    }
+    // if (allBooks.isNotEmpty) {
+    //   allBooks.sort(
+    //       (BookModel a, BookModel b) => b.createdAt.compareTo(a.createdAt));
+    // }
     return allBooks;
-  }
-
-  @override
-  Future<BookModel?> getABook({required String id}) async {
-    if (Boxes.getBookHive().containsKey(id)) {
-      return Boxes.getBookHive().get(id);
-    } else {
-      return null;
-    }
-  }
-
-  @override
-  Future<BookModel> updateBook({required BookModel book}) async {
-    await book.save();
-    return book;
   }
 }
