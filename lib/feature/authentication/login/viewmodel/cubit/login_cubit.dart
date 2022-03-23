@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:vbt_hackathon_group3/product/utils/firebase/firebase_auth.dart';
+import '../../../../../product/utils/firebase/firebase_auth.dart';
 
 part 'login_state.dart';
 

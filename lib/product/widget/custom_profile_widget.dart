@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/feature/authentication/register/model/user_model.dart';
+import '../../feature/authentication/register/model/user_model.dart';
 
 class CustomProfileCard extends StatelessWidget {
   UserModel? user;

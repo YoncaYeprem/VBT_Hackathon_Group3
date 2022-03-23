@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import '../../bookDetail/view/book_detail_view.dart';
+
 import '../../addBook/model/book_model.dart';
+import '../../bookDetail/view/book_detail_view.dart';
 import '../viewmodel/cubit/my_favorites_cubit.dart';
 
 class MyFavoritesView extends StatelessWidget {

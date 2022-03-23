@@ -1,13 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:vbt_hackathon_group3/feature/authentication/register/model/user_model.dart';
-import 'package:vbt_hackathon_group3/product/productmodel.dart';
-import 'package:vbt_hackathon_group3/product/utils/firebase/firebase_auth.dart';
+
+import '../../../feature/authentication/register/model/user_model.dart';
+import '../../productmodel.dart';
 
 class FirebaseStorageFunctions {
   FirebaseFirestore firestore = FirebaseFirestore.instance;

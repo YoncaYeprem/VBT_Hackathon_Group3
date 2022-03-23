@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:vbt_hackathon_group3/feature/authentication/register/model/user_model.dart';
-import 'package:vbt_hackathon_group3/product/productmodel.dart';
-import 'package:vbt_hackathon_group3/product/utils/firebase/firebase_storage_functions.dart';
+import '../../authentication/register/model/user_model.dart';
+import '../../../product/productmodel.dart';
+import '../../../product/utils/firebase/firebase_storage_functions.dart';
 
 part 'other_profile_page_cubit_state.dart';
 

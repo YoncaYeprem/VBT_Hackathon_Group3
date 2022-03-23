@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_profile_book_list.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_profile_widget.dart';
+import '../../../product/widget/custom_profile_book_list.dart';
+import '../../../product/widget/custom_profile_widget.dart';
 
 import '../../../product/widget/custom_profile_background.dart';
 import '../../../product/widget/custom_profile_text.dart';

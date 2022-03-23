@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_profile_background.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_profile_text.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_profile_widget.dart';
 
+import '../../../product/widget/custom_profile_background.dart';
 import '../../../product/widget/custom_profile_detail_list.dart';
+import '../../../product/widget/custom_profile_text.dart';
+import '../../../product/widget/custom_profile_widget.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
