@@ -6,11 +6,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
-import 'package:vbt_hackathon_group3/feature/add_book.dart/book_model/book_model.dart';
-
 import '../../../../product/utils/firebase/firebase_storage_functions.dart';
+import '../../book_model/book_model.dart';
 part 'add_book_state.dart';
 
 class AddBookCubit extends Cubit<AddBookState> {
