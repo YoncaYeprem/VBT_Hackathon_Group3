@@ -1,9 +1,9 @@
-import '../addBook/model/product_model.dart';
+import '../addBook/model/book_model.dart';
 
 final book1 = BookModel(
     id: "book1",
     userId: "user1",
-    bookName: "Book Name 1",
+    bookName: "The Past Is Rising The Past Is Rising The Past Is Rising",
     overview:
         "The Past Is Rising is a compelling fantasy epic that revolves around the uprising of dark forces bent on wresting a kingdom from its rightful rulers. Several warriors will discover that their true destinies are to salvage their kingdom and defeat the rising evil. At fourteen, Erik dreams of past glories.The Past Is Rising is a compelling fantasy epic that revolves around the uprising of dark forces bent on wresting a kingdom from its rightful rulers. Several warriors will discover that their true destinies are to salvage their kingdom and defeat the rising evil. At fourteen, Erik dreams of past glories.",
     author: "Kathryn Bywaters",
