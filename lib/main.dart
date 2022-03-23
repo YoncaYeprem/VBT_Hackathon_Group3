@@ -7,6 +7,7 @@ import 'core/constants/app_constants.dart';
 import 'core/constants/language_manager.dart';
 import 'core/init/theme/app_theme.dart';
 import 'feature/authentication/register/view/register_view.dart';
+import 'feature/google_map/google_map_view.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'Hackathon App',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.createThemeData(AppThemeLight()),
-      home: OtherProfilePage(user: null),
+      home: GoogleMapView(),
     );
   }
 }
