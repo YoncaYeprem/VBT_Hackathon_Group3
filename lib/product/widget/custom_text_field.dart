@@ -4,6 +4,7 @@ class CustomTextField extends TextFormField {
   final FocusNode node;
   final TextEditingController textController;
   final bool isObsecure;
+  final int? maxLines;
   final String hintString;
   final TextInputType textInputType;
   final IconButton? suffix;
@@ -15,6 +16,7 @@ class CustomTextField extends TextFormField {
       required this.context,
       this.suffix,
       this.textInputType = TextInputType.text,
+      this.maxLines,
       required this.textController,
       required this.isObsecure,
       required this.node})
@@ -24,6 +26,7 @@ class CustomTextField extends TextFormField {
           controller: textController,
           obscureText: isObsecure,
           keyboardType: textInputType,
+          maxLines: maxLines,
           decoration: InputDecoration(
             suffixIcon: suffix,
             label: Text(hintString),
