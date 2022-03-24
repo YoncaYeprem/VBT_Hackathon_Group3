@@ -32,6 +32,8 @@ class AppThemeDark extends ITheme {
 abstract class ThemeManager {
   static ThemeData createThemeData(ITheme theme) {
     return ThemeData(
+      indicatorColor: theme.colorTheme.textfield,
+      canvasColor: theme.colorTheme.colorRed,
       fontFamily: theme.textTheme.fontFamily,
       scaffoldBackgroundColor: theme.colorTheme.backgroundColor,
       textTheme: TextTheme(
@@ -39,6 +41,7 @@ abstract class ThemeManager {
         headline4: theme.textTheme.headline4,
         headline6: theme.textTheme.headline6,
         bodyText1: theme.textTheme.body1,
+        bodyText2: theme.textTheme.body2,
         button: theme.textTheme.button,
       ),
       appBarTheme: AppBarTheme(color: theme.colorTheme.appBarColor),

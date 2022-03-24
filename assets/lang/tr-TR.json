@@ -2,6 +2,13 @@
     "appBar": {
         "title": "Hoş geldiniz"
     },
+    "home":{
+        "addNew":"Son Eklenenler",
+        "sale":"Satıs",
+        "swap":"Takas",
+        "welcome":"Hoşgeldin,",
+        "info":"Bugün ne okumak istersin?"
+    },
     "login": {
         "signInButton": "Giriş Yap",
         "emailText": "Email",

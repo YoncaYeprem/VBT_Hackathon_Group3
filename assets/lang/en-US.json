@@ -2,6 +2,13 @@
     "appBar": {
         "title": "Welcome"
     },
+    "home":{
+        "addNew":"New Arrivals",
+        "sale":"Sale",
+        "swap":"Swap",
+        "welcome":"Welcome back,",
+        "info":"What do you want to read today?"
+    },
     "login": {
         "signInButton": "Sign In",
         "emailText": "Email",

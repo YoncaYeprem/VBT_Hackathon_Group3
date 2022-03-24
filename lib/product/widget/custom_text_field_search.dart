@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 
-class CustomTextFieldSearch extends TextFormField {
-  final FocusNode? node;
-  final TextEditingController? textController;
-  final bool? isObsecure;
-  final String? hintString;
-  final TextInputType? textInputType;
-  final IconButton? suffix;
-  final BuildContext? context;
+class CustomTextFieldSearch extends StatelessWidget {
+  const CustomTextFieldSearch({Key? key}) : super(key: key);
 
-  CustomTextFieldSearch(
-      {Key? key,
-       this.hintString,
-       this.context,
-      this.suffix,
-      this.textInputType = TextInputType.text,
-       this.textController,
-       this.isObsecure,
-       this.node})
-      : super(
-          key: key,
-          focusNode: node,
-          controller: textController,
-          obscureText: isObsecure ?? false,
-          keyboardType: textInputType,
+  @override
+  Widget build(BuildContext context) {
+    double _radius = 10;
+    return Padding(
+      padding: context.horizontalPaddingLow,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Theme.of(context).indicatorColor,
+            borderRadius: BorderRadius.circular(_radius)),
+        child: TextField(
           decoration: InputDecoration(
-            suffixIcon: suffix,
-            label: Text(hintString ?? ""),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+            hintText: 'arama',
+            border: InputBorder.none,
+            prefixIcon: Icon(
+              Icons.search_rounded,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
+            suffixIconConstraints: const BoxConstraints(maxHeight: 30),
+            suffixIcon: const Icon(Icons.mic),
           ),
-        );
+        ),
+      ),
+    );
+  }
 }

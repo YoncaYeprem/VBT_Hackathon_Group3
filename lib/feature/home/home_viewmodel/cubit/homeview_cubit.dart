@@ -23,13 +23,23 @@ class HomeviewCubit extends Cubit<HomeviewState> {
   Future<void> getUserData() async {
     changeLoading();
     userModel = await FirebaseStorageFunctions().getUserModel();
+
+    changeLoading();
+  }
+
+  Future<void> getBookData() async {
+    changeLoading();
+    bookModel = await FirebaseStorageFunctions().getBookModelsExchange();
+
     changeLoading();
   }
 
   Future init() async {
     await getUserData();
+    await getBookData();
     emit(HomeViewComplited(
       userModel: userModel,
+      bookModel: bookModel,
     ));
   }
 }

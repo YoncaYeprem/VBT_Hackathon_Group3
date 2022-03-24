@@ -3,6 +3,12 @@
 abstract class  LocaleKeys {
   static const appBar_title = 'appBar.title';
   static const appBar = 'appBar';
+  static const home_addNew = 'home.addNew';
+  static const home_sale = 'home.sale';
+  static const home_swap = 'home.swap';
+  static const home_welcome = 'home.welcome';
+  static const home_info = 'home.info';
+  static const home = 'home';
   static const login_signInButton = 'login.signInButton';
   static const login_emailText = 'login.emailText';
   static const login_passwordText = 'login.passwordText';
