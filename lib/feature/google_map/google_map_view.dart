@@ -43,25 +43,33 @@ class GoogleMapView extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Card(
-                    child: ListView.builder(
-                      itemCount: context
-                          .read<GoogleMapCubit>()
-                          .nearbyModel
-                          ?.results
-                          ?.length,
-                      itemBuilder: (context, index) {
-                        var model = context
-                            .read<GoogleMapCubit>()
-                            .nearbyModel
-                            ?.results?[index];
-                        return ListTile(title: Text("${model?.name}"));
-                      },
-                    ),
-                  )),
+              child: context.read<GoogleMapCubit>().nearbyModel?.results == null
+                  ? null
+                  : SizedBox(
+                      width: 300,
+                      height: 300,
+                      child: Card(
+                        child: ListView.builder(
+                          itemCount: context
+                              .read<GoogleMapCubit>()
+                              .nearbyModel
+                              ?.results
+                              ?.length,
+                          itemBuilder: (context, index) {
+                            var model = context
+                                .read<GoogleMapCubit>()
+                                .nearbyModel
+                                ?.results?[index];
+                            return GestureDetector(
+                                onTap: () {
+                                  context
+                                      .read<GoogleMapCubit>()
+                                      .goToSelected(model);
+                                },
+                                child: ListTile(title: Text("${model?.name}")));
+                          },
+                        ),
+                      )),
             ),
             changeMapTypeBTN(context),
             exitFromViewIconBTN(context),

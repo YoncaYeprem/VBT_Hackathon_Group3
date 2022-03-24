@@ -51,6 +51,17 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
     emit(AddMarkerState());
   }
 
+  Future<void> goToSelected(Results? results) async {
+    final GoogleMapController _controller = await controller.future;
+    _controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        zoom: 15,
+        target: LatLng(results?.geometry?.location?.lat ?? 41.015137,
+            results?.geometry?.location?.lng ?? 28.979530))));
+    createMarker(LatLng(results?.geometry?.location?.lat ?? 41.015137,
+        results?.geometry?.location?.lng ?? 28.979530));
+    emit(ChangeCamPosState());
+  }
+
   Future<void> getCurrentLocation(BuildContext context) async {
     currentLocation = await LocDataFuncs().returnLocationData(context);
     emit(GetCurrentLocState());
@@ -68,6 +79,7 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   }
 
   Future<void> getNearestPlace(LocationData? locationData) async {
-    nearbyModel = await searchNetworkMaps.getAllPlaces(context, locationData);
+    nearbyModel =
+        await searchNetworkMaps.getAsListAllNearPlaces(context, locationData);
   }
 }

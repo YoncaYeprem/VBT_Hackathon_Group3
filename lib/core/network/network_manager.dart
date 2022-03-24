@@ -24,17 +24,15 @@ abstract class ISearchNetworkMaps {
   final Dio dio;
 
   ISearchNetworkMaps(this.dio);
-  Future<BaseNearestPlaceModel?> getAllPlaces(
+  Future<BaseNearestPlaceModel?> getAsListAllNearPlaces(
       BuildContext context, LocationData? locationData);
-  Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
-      LocationData? locationData);
 }
 
 class SearchNetworkMaps extends ISearchNetworkMaps {
   SearchNetworkMaps(Dio dio) : super(dio);
 
   @override
-  Future<BaseNearestPlaceModel?> getAllPlaces(
+  Future<BaseNearestPlaceModel?> getAsListAllNearPlaces(
       BuildContext context, LocationData? locationData) async {
     final response = await dio.get(
         "nearbysearch/json?keyword=library&location=${locationData?.latitude},${locationData?.longitude}&radius=1500&type=library&key=AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs");
@@ -46,28 +44,4 @@ class SearchNetworkMaps extends ISearchNetworkMaps {
           .showSnackBar(SnackBar(content: Text("Failed")));
     }
   }
-
-  @override
-  Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
-      LocationData? locationData) {
-    // TODO: implement getAsListAllNearPlaces
-    throw UnimplementedError();
-  }
-
-  // @override
-  // Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
-  //     LocationData? locationData) async {
-  //   final response = await dio.get(
-  //       "nearbysearch/json?keyword=library&location=${locationData?.latitude},${locationData?.longitude}&radius=1500&type=library&key=AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs");
-  //   if (response.statusCode == 200) {
-  //     BaseNearestPlaceModel base = BaseNearestPlaceModel.fromJson(response.data);
-  //     List<PlacesNearbySearchResponseModel> list = [];
-  //     base.results?.forEach((element) {
-  //       PlacesNearbySearchResponseModel temp =
-  //           PlacesNearbySearchResponseModel.fromJson(element);
-  //       list.add(temp);
-  //     });
-  //   }
-  //   return null;
-  // }
 }
