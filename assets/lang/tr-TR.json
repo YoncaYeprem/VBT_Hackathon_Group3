@@ -74,5 +74,12 @@
         "publishYear":"Basım Yılı",
         "exhange":"Takas Yap",
         "overview":"Genel Bakış"
+    "network":{
+        "failedToLoad":"Kütüphaneleri yükleme başarısız oldu"
+    },
+        "library":{
+     "open":"Açık",
+     "closed":"Kapalı"
+
     }
 }

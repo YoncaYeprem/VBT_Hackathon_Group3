@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const appBar_title = 'appBar.title';
   static const appBar = 'appBar';
   static const home_addNew = 'home.addNew';
@@ -54,7 +54,8 @@ abstract class  LocaleKeys {
   static const addBook_category_religion = 'addBook.category.religion';
   static const addBook_category_child = 'addBook.category.child';
   static const addBook_category_tale = 'addBook.category.tale';
-  static const addBook_category_selfImprovement = 'addBook.category.selfImprovement';
+  static const addBook_category_selfImprovement =
+      'addBook.category.selfImprovement';
   static const addBook_category_psychology = 'addBook.category.psychology';
   static const addBook_category_history = 'addBook.category.history';
   static const addBook_category_humor = 'addBook.category.humor';
@@ -68,5 +69,9 @@ abstract class  LocaleKeys {
   static const bookDetail_exhange = 'bookDetail.exhange';
   static const bookDetail_overview = 'bookDetail.overview';
   static const bookDetail = 'bookDetail';
-
+  static const network_failedToLoad = 'network.failedToLoad';
+  static const network = 'network';
+  static const library_open = 'library.open';
+  static const library_closed = 'library.closed';
+  static const library = 'library';
 }

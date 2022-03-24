@@ -73,6 +73,11 @@
         "language":"Language",
         "publishYear":"Publish Year",
         "exhange":"Make Exhange",
-        "overview":"Overview"
+        "overview":"Overview",
+    "network":{
+        "failedToLoad":"Failed to load libraries"
+    },
+    "library":{
+        "open":"Open",
+        "closed": "Closed"
     }
-}

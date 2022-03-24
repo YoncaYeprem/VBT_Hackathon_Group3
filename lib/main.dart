@@ -11,6 +11,8 @@ import 'core/init/theme/app_theme.dart';
 import 'feature/authentication/login/view/login_view.dart';
 import 'feature/home/home_view/home_view.dart';
 import 'feature/splash/view/splash_view.dart';
+import 'feature/authentication/register/view/register_view.dart';
+import 'feature/google_map/google_map_view.dart';
 import 'firebase_options.dart';
 import 'feature/addBook/book_model/productmodel.dart';
 import 'product/utils/cache/user_manager.dart';
