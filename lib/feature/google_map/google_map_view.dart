@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
+import 'package:vbt_hackathon_group3/feature/google_map/model/nearbys_model.dart';
 
 class GoogleMapView extends StatelessWidget {
   GoogleMapView({Key? key}) : super(key: key);
@@ -29,78 +29,99 @@ class GoogleMapView extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            GoogleMap(
-              mapType: context.read<GoogleMapCubit>().getMapType,
-              markers: context.read<GoogleMapCubit>().getMarkers,
-              onTap: (latlong) {
-                context.read<GoogleMapCubit>().createMarker(latlong);
-              },
-              initialCameraPosition:
-                  context.read<GoogleMapCubit>().defaultCameraPos,
-              onMapCreated: (GoogleMapController controller) {
-                context.read<GoogleMapCubit>().controller.complete(controller);
-              },
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: context.read<GoogleMapCubit>().nearbyModel?.results == null
-                  ? null
-                  : Container(
-                      constraints: BoxConstraints(
-                        maxHeight: context.dynamicHeight(0.3),
-                      ),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).secondaryHeaderColor,
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(20))),
-                      child: ListView.separated(
-                        separatorBuilder: (context, index) => const Divider(
-                          thickness: 1,
-                        ),
-                        shrinkWrap: true,
-                        itemCount: context
-                                .read<GoogleMapCubit>()
-                                .nearbyModel
-                                ?.results
-                                ?.length ??
-                            0,
-                        itemBuilder: (context, index) {
-                          var model = context
-                              .read<GoogleMapCubit>()
-                              .nearbyModel
-                              ?.results?[index];
-                          return GestureDetector(
-                              onTap: () {
-                                context
-                                    .read<GoogleMapCubit>()
-                                    .goToSelected(model);
-                              },
-                              child: ListTile(
-                                title: Text("${model?.name}",
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium),
-                                leading: CircleAvatar(
-                                  backgroundColor:
-                                      Theme.of(context).secondaryHeaderColor,
-                                  backgroundImage:
-                                      NetworkImage("${model?.icon}"),
-                                ),
-                              ));
-                        },
-                      ),
-                    ),
-            ),
+            GoogleMapWidget(context),
+            BottomLibraryList(context),
             changeMapTypeBTN(context),
             exitFromViewIconBTN(context),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.location_on_outlined),
-          onPressed: () async {
-            await context.read<GoogleMapCubit>().getCurrentLocation(context);
-          },
-        ),
+        floatingActionButton: FAB(context),
       ),
+    );
+  }
+
+  GoogleMap GoogleMapWidget(BuildContext context) {
+    return GoogleMap(
+      mapType: context.read<GoogleMapCubit>().getMapType,
+      markers: context.read<GoogleMapCubit>().getMarkers,
+      onTap: (latlong) {
+        context.read<GoogleMapCubit>().createMarker(latlong);
+      },
+      initialCameraPosition: context.read<GoogleMapCubit>().defaultCameraPos,
+      onMapCreated: (GoogleMapController controller) {
+        context.read<GoogleMapCubit>().controller.complete(controller);
+      },
+    );
+  }
+
+  Align BottomLibraryList(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: context.read<GoogleMapCubit>().nearbyModel?.results == null
+          ? null
+          : Container(
+              constraints: BoxConstraints(
+                maxHeight: context.dynamicHeight(0.3),
+              ),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).secondaryHeaderColor,
+                  borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(context.dynamicWidth(0.08)))),
+              child: Column(
+                children: [
+                  divider(context),
+                  LibrariesList(context),
+                ],
+              ),
+            ),
+    );
+  }
+
+  Divider divider(BuildContext context) {
+    return Divider(
+      thickness: 2,
+      color: Colors.black38,
+      indent: context.dynamicWidth(0.2),
+      endIndent: context.dynamicWidth(0.2),
+    );
+  }
+
+  ListView LibrariesList(BuildContext context) {
+    return ListView.separated(
+      separatorBuilder: (context, index) => const Divider(
+        thickness: 1,
+      ),
+      shrinkWrap: true,
+      itemCount:
+          context.read<GoogleMapCubit>().nearbyModel?.results?.length ?? 0,
+      itemBuilder: (context, index) {
+        var model = context.read<GoogleMapCubit>().nearbyModel?.results?[index];
+        return GestureDetector(
+            onTap: () {
+              context.read<GoogleMapCubit>().goToSelected(model);
+            },
+            child: LibrariesInfo(model, context));
+      },
+    );
+  }
+
+  ListTile LibrariesInfo(Results? model, BuildContext context) {
+    return ListTile(
+      title:
+          Text("${model?.name}", style: Theme.of(context).textTheme.bodyMedium),
+      leading: CircleAvatar(
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
+        backgroundImage: NetworkImage("${model?.icon}"),
+      ),
+    );
+  }
+
+  FloatingActionButton FAB(BuildContext context) {
+    return FloatingActionButton(
+      child: Icon(Icons.location_on_outlined),
+      onPressed: () {
+        context.read<GoogleMapCubit>().getCurrentLocation(context);
+      },
     );
   }
 
