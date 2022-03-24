@@ -6,6 +6,16 @@ part of 'nearbys_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+BaseModel _$BaseModelFromJson(Map<String, dynamic> json) => BaseModel(
+      (json['results'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+    );
+
+Map<String, dynamic> _$BaseModelToJson(BaseModel instance) => <String, dynamic>{
+      'results': instance.results,
+    };
+
 PlacesNearbySearchResponseModel _$PlacesNearbySearchResponseModelFromJson(
         Map<String, dynamic> json) =>
     PlacesNearbySearchResponseModel(

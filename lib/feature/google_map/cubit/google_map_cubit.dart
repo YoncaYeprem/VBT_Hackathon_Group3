@@ -1,34 +1,34 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:meta/meta.dart';
-import 'package:vbt_hackathon_group3/core/constants/key_storage.dart';
+import 'package:location/location.dart';
+import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
+import 'package:vbt_hackathon_group3/feature/google_map/funcs/location_data_funcs.dart';
+
+import '../model/nearbys_model.dart';
 
 part 'google_map_state.dart';
 
 class GoogleMapCubit extends Cubit<GoogleMapState> {
-  GoogleMapCubit() : super(GoogleMapInitial());
+  GoogleMapCubit(this.searchNetworkMaps, this.context)
+      : super(GoogleMapInitial()) {
+    getCurrentLocation(context);
+  }
 
   Completer<GoogleMapController> controller = Completer();
   bool isHybrid = false;
+  BaseModel? nearbyModel;
+  ISearchNetworkMaps searchNetworkMaps;
+  LocationData? currentLocation;
+  BuildContext context;
+  Set<Marker> getMarkers = {};
+  List<Marker> markers = <Marker>[];
 
   final defaultCameraPos = const CameraPosition(
     target: LatLng(41.015137, 28.979530),
-    zoom: 14.4746,
+    zoom: 10,
   );
-  final CameraPosition kLake = const CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
-
-  Future<void> goToTheLake() async {
-    final GoogleMapController tempController = await controller.future;
-    tempController
-        .animateCamera(CameraUpdate.newCameraPosition(defaultCameraPos));
-  }
 
   MapType get getMapType => isHybrid ? MapType.hybrid : MapType.normal;
   changeMapType() {
@@ -42,23 +42,24 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
     }
   }
 
-  Set<Marker> getMarkers = {};
-
   void createMarker(LatLng latlng) {
     getMarkers
         .add(Marker(markerId: const MarkerId("new marker"), position: latlng));
     emit(AddMarkerState());
   }
 
-  List<Marker> markers = <Marker>[];
-  void searchByNearby(LatLng latLng) {
-    final response = Dio().get(""" 
-    https://maps.googleapis.com/maps/api/place/nearbysearch/json
-  ?keyword=cruise
-  &location=-33.8670522%2C151.1957362
-  &radius=1500
-  &type=library
-  &key=${keys.apiKey.rawValue}
-""");
+  Future<void> getCurrentLocation(BuildContext context) async {
+    currentLocation = await LocDataFuncs().returnLocationData(context);
+    emit(GetCurrentLocState());
+    final GoogleMapController _controller = await controller.future;
+    if (currentLocation != null) {
+      _controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+          zoom: 12,
+          target: LatLng(currentLocation?.latitude ?? 41.015137,
+              currentLocation?.longitude ?? 28.979530))));
+      createMarker(
+          LatLng(currentLocation!.latitude!, currentLocation!.longitude!));
+      emit(GetCurrentLocState());
+    }
   }
 }

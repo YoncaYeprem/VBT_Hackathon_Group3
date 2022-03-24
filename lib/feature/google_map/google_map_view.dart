@@ -3,6 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
 
 class GoogleMapView extends StatelessWidget {
@@ -11,7 +12,8 @@ class GoogleMapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GoogleMapCubit(),
+      create: (context) => GoogleMapCubit(
+          SearchNetworkMaps(NetworkManager.instance.dio), context),
       child: BlocConsumer<GoogleMapCubit, GoogleMapState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -41,6 +43,12 @@ class GoogleMapView extends StatelessWidget {
             changeMapTypeBTN(context),
             exitFromViewIconBTN(context),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.location_on_outlined),
+          onPressed: () async {
+            await context.read<GoogleMapCubit>().getCurrentLocation(context);
+          },
         ),
       ),
     );

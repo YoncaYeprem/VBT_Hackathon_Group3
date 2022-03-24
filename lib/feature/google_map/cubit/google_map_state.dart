@@ -8,3 +8,5 @@ class GoogleMapInitial extends GoogleMapState {}
 class ChangeMapTypeState extends GoogleMapState {}
 
 class AddMarkerState extends GoogleMapState {}
+
+class GetCurrentLocState extends GoogleMapState {}

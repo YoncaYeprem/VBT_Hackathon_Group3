@@ -3,6 +3,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'nearbys_model.g.dart';
 
 @JsonSerializable()
+class BaseModel {
+  BaseModel(this.results);
+  List<Map>? results;
+
+  factory BaseModel.fromJson(Map<String, dynamic> json) {
+    return _$BaseModelFromJson(json);
+  }
+  Map<String, dynamic> toJson() {
+    return _$BaseModelToJson(this);
+  }
+}
+
+@JsonSerializable()
 class PlacesNearbySearchResponseModel {
   List<String>? html_attributions;
   List<Place>? results;
@@ -26,11 +39,11 @@ class PlacesNearbySearchResponseModel {
   // }
 
   Map<String, dynamic> toJson() {
-    return _$PlacesNearbySearchResponseToJson(this);
+    return _$PlacesNearbySearchResponseModelToJson(this);
   }
 
   factory PlacesNearbySearchResponseModel.fromJson(Map<String, dynamic> json) {
-    return _$PlacesNearbySearchResponseFromJson(json);
+    return _$PlacesNearbySearchResponseModelFromJson(json);
   }
 }
 
