@@ -13,5 +13,50 @@
         "emailText": "Email",
         "passwordText": "Şifre",
         "username": "Kullanıcı Adı"
+    },
+    "validator":{
+"cantEmpty":"Bu alan boş bırakılamaz",
+"enterValidValue":"Lütfen geçerli bir değer girin"
+    },
+    "firebase":{
+        "noUserFound":"Kullanıcı bulunamadı",
+        "mailAlreadyUsing":"Mail adresi zaten kullanımda",
+        "verifyMailMessage":"Lütfen mailinizi onaylayın"
+    },
+    "addBook": {
+        "bookName": "Kitap adı",
+        "autherName": "Yazar",
+        "bookOverview": "Kitabın genel bakış",
+        "language": "Dil",
+        "pageCount": "Sayfa sayısı",
+        "price": "Fiyat",
+        "selectButton": "Resim Ekleyiniz",
+        "addButton": "Satışa Çıkart",
+        "publisher": "Yayımcı",
+        "publisherYear": "Yayım Yılı",
+        "addBookAppBar": "Kitap Ekle",
+        "selectCategory": "Kategori Seçiniz",
+        "exchange": "Takas Yap",
+        "sell": "Fiyatlandır",
+        "category": {
+            "remembrance": "Anı",
+            "novel": "Roman",
+            "research": "Araştırma-İnceleme",
+            "science": "Bilim",
+            "biography": "Biyografi",
+            "attempt": "Deneme",
+            "education": "Eğitim",
+            "philosophy": "Felsefe",
+            "travel": "Gezi",
+            "story": "Hikaye",
+            "poetry": "Şiir",
+            "religion": "Din",
+            "child": "Çocuk",
+            "tale": "Masal",
+            "selfImprovement": "Kişisel Gelişim",
+            "psychology": "Psikoloji",
+            "history": "Tarih",
+            "humor": "Mizah"
+        }
     }
 }
