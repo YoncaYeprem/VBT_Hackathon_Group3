@@ -45,51 +45,49 @@ class GoogleMapView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: context.read<GoogleMapCubit>().nearbyModel?.results == null
                   ? null
-                  : BottomSheet(
-                      onClosing: () {},
-                      builder: (context) {
-                        return Container(
-                            constraints: BoxConstraints(
-                                maxHeight: context.dynamicHeight(0.3)),
-                            width: 300,
-                            height: 300,
-                            child: ListView.separated(
-                              separatorBuilder: (context, index) =>
-                                  const Divider(
-                                thickness: 1,
-                              ),
-                              shrinkWrap: true,
-                              itemCount: context
-                                      .read<GoogleMapCubit>()
-                                      .nearbyModel
-                                      ?.results
-                                      ?.length ??
-                                  0,
-                              itemBuilder: (context, index) {
-                                var model = context
+                  : Container(
+                      constraints: BoxConstraints(
+                        maxHeight: context.dynamicHeight(0.3),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).secondaryHeaderColor,
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20))),
+                      child: ListView.separated(
+                        separatorBuilder: (context, index) => const Divider(
+                          thickness: 1,
+                        ),
+                        shrinkWrap: true,
+                        itemCount: context
+                                .read<GoogleMapCubit>()
+                                .nearbyModel
+                                ?.results
+                                ?.length ??
+                            0,
+                        itemBuilder: (context, index) {
+                          var model = context
+                              .read<GoogleMapCubit>()
+                              .nearbyModel
+                              ?.results?[index];
+                          return GestureDetector(
+                              onTap: () {
+                                context
                                     .read<GoogleMapCubit>()
-                                    .nearbyModel
-                                    ?.results?[index];
-                                return GestureDetector(
-                                    onTap: () {
-                                      context
-                                          .read<GoogleMapCubit>()
-                                          .goToSelected(model);
-                                    },
-                                    child: ListTile(
-                                      title: Text("${model?.name}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium),
-                                      leading: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        backgroundImage:
-                                            NetworkImage("${model?.icon}"),
-                                      ),
-                                    ));
+                                    .goToSelected(model);
                               },
-                            ));
-                      },
+                              child: ListTile(
+                                title: Text("${model?.name}",
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium),
+                                leading: CircleAvatar(
+                                  backgroundColor:
+                                      Theme.of(context).secondaryHeaderColor,
+                                  backgroundImage:
+                                      NetworkImage("${model?.icon}"),
+                                ),
+                              ));
+                        },
+                      ),
                     ),
             ),
             changeMapTypeBTN(context),

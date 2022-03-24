@@ -23,14 +23,13 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   ISearchNetworkMaps searchNetworkMaps;
   LocationData? currentLocation;
   BuildContext context;
-  Set<Marker> getMarkers = {};
-  List<Set<Marker>> markers = <Set<Marker>>[];
+  Set<Marker> getMarkers = Set();
   final searchController = TextEditingController();
   final searchNode = FocusNode();
 
   final defaultCameraPos = const CameraPosition(
     target: LatLng(41.015137, 28.979530),
-    zoom: 10,
+    zoom: 12,
   );
 
   MapType get getMapType => isHybrid ? MapType.hybrid : MapType.normal;
@@ -68,7 +67,7 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
     final GoogleMapController _controller = await controller.future;
     if (currentLocation != null) {
       _controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-          zoom: 12,
+          zoom: 14,
           target: LatLng(currentLocation?.latitude ?? 41.015137,
               currentLocation?.longitude ?? 28.979530))));
       createMarker(
