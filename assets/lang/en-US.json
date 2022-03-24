@@ -13,5 +13,59 @@
         "emailText": "Email",
         "passwordText": "Password",
         "username": "Username"
-    } 
+    },
+    "validator":{
+        "cantEmpty":"This area cannot be left empty",
+        "enterValidValue":"Please enter a valid value"
+    },
+    "firebase":{
+        "noUserFound":"User not found",
+        "mailAlreadyUsing":"Mail address is already in use",
+        "verifyMailMessage":"Please verify your email"
+    },
+    "addBook": {
+        "bookName": "Book Name",
+        "autherName": "Auther",
+        "bookOverview": "The Book Overview",
+        "language": "Language",
+        "pageCount": "Page Count",
+        "price": "Price",
+        "selectButton": "Add Image",
+        "addButton": "Sell the Book",
+        "publisher": "Publisher",
+        "publisherYear": "Publisher Year",
+        "addBookAppBar": "Add Book",
+        "selectCategory": "Select Category",
+        "exchange": "Exchange",
+        "sell": "Sell",
+        "category": {
+            "remembrance": "Remembrance",
+            "novel": "Noval",
+            "research": "Research",
+            "science": "Science",
+            "biography": "Biography",
+            "attempt": "Attempt",
+            "education": "Education",
+            "philosophy": "Philosophy",
+            "travel": "Travel",
+            "story": "Story",
+            "poetry": "Poetry",
+            "religion": "Religion",
+            "child": "Child",
+            "tale": "Tale",
+            "selfImprovement": "Self-Improvement",
+            "psychology": "Psychology",
+            "history": "History",
+            "humor": "Humor"
+        }
+    },
+    "bookDetail":{
+        "pages":"Pages",
+        "category":"Category",
+        "uploadedAt":"Uploaded At",
+        "language":"Language",
+        "publishYear":"Publish Year",
+        "exhange":"Make Exhange",
+        "overview":"Overview"
+    }
 }

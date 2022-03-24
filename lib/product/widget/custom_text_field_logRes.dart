@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends TextFormField {
+class CustomTextFieldBook extends TextFormField {
   final FocusNode node;
   final TextEditingController textController;
   final bool isObsecure;
   final String hintString;
   final TextInputType textInputType;
   final IconButton? suffix;
-  //final int? maxLines;
+  final int? maxLines;
   final BuildContext context;
+  final FormFieldValidator<String>? Validator;
 
-  CustomTextField(
+  CustomTextFieldBook(
       {Key? key,
       required this.hintString,
       required this.context,
       this.suffix,
       this.Validator,
-      //this.maxLines,
+      this.maxLines,
       this.textInputType = TextInputType.text,
       required this.textController,
       required this.isObsecure,
@@ -24,9 +25,10 @@ class CustomTextField extends TextFormField {
       : super(
           key: key,
           focusNode: node,
+          validator: Validator,
           controller: textController,
           obscureText: isObsecure,
-          //maxLines: maxLines,
+          maxLines: maxLines,
           keyboardType: textInputType,
           decoration: InputDecoration(
             suffixIcon: suffix,
@@ -37,3 +39,4 @@ class CustomTextField extends TextFormField {
           ),
         );
 }
+
