@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meta/meta.dart';
+import 'package:vbt_hackathon_group3/core/constants/key_storage.dart';
 
 part 'google_map_state.dart';
 
@@ -46,5 +48,17 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
     getMarkers
         .add(Marker(markerId: const MarkerId("new marker"), position: latlng));
     emit(AddMarkerState());
+  }
+
+  List<Marker> markers = <Marker>[];
+  void searchByNearby(LatLng latLng) {
+    final response = Dio().get(""" 
+    https://maps.googleapis.com/maps/api/place/nearbysearch/json
+  ?keyword=cruise
+  &location=-33.8670522%2C151.1957362
+  &radius=1500
+  &type=library
+  &key=${keys.apiKey.rawValue}
+""");
   }
 }
