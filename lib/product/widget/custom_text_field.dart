@@ -9,7 +9,8 @@ class CustomTextField extends TextFormField {
   final IconButton? suffix;
   //final int? maxLines;
   final BuildContext context;
-  final FormFieldValidator<String>? Validator;
+
+  var Validator;
 
   CustomTextField(
       {Key? key,
@@ -25,7 +26,6 @@ class CustomTextField extends TextFormField {
       : super(
           key: key,
           focusNode: node,
-          validator: Validator,
           controller: textController,
           obscureText: isObsecure,
           //maxLines: maxLines,
@@ -39,4 +39,3 @@ class CustomTextField extends TextFormField {
           ),
         );
 }
-

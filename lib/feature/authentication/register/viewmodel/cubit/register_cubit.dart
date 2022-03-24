@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:meta/meta.dart';
 
 import '../../../../../product/utils/firebase/firebase_auth.dart';
 import '../../../../../product/utils/firebase/firebase_storage_functions.dart';
+import '../../../../profile/model/user_model.dart';
 import '../../../login/view/login_view.dart';
-import '../../model/user_model.dart';
 
 part 'register_state.dart';
 
@@ -58,7 +58,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     isLoading = !isLoading;
   }
 
-   Future<void> userSignUp(BuildContext context) async {
+  Future<void> userSignUp(BuildContext context) async {
     changeLoading();
 
     if (formKey.currentState!.validate()) {
@@ -74,14 +74,14 @@ class RegisterCubit extends Cubit<RegisterState> {
         uploadPath = await FirebaseStorageFunctions()
             .uploadGallery(imagePath: imagePath);
       }
-       user = UserModel(
-            id: userId,
-            firstname: firstNameController.text,
-            lastName: lastNameController.text,
-            userName: usernameController.text,
-            email: emailController.text,
-            password: passwordController.text,
-            photo: uploadPath ?? "");
+      user = UserModel(
+          id: userId,
+          firstname: firstNameController.text,
+          lastName: lastNameController.text,
+          userName: usernameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          photo: uploadPath ?? "");
 
       await FirebaseStorageFunctions()
           .saveUserInStorage(userId, user)
@@ -97,17 +97,16 @@ class RegisterCubit extends Cubit<RegisterState> {
               MaterialPageRoute(
                 builder: (context) => LoginView(),
               )));
-    }else{
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Please Fill Required Places"),
-              ),
-            );
+        SnackBar(
+          content: Text("Please Fill Required Places"),
+        ),
+      );
     }
     changeLoading();
     emit(RegisterComplete());
   }
-
 
   void selectImage() async {
     final XFile? selectedImage =
