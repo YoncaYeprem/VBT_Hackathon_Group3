@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/product/constant/app_radius.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_home_sale_swap_image.dart';
+import '../../../../product/constant/app_radius.dart';
+import '../../../../product/widget/custom_home_sale_swap_image.dart';
 
 import '../viewmodel/cubit/swappage_cubit.dart';
 

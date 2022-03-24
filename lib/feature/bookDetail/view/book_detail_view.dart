@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
-import 'package:vbt_hackathon_group3/feature/other_profile_page/view/other_profile_page_view.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
+import '../../other_profile_page/view/other_profile_page_view.dart';
 import '../../addBook/book_model/productmodel.dart';
 import '../../myFavoritesPage/view/my_favorites_view.dart';
 import '../../../../product/widget/custom_text_row.dart';
@@ -38,7 +38,8 @@ class BookDetailView extends StatelessWidget {
           leading: IconButton(
               onPressed: () {
                 context.pop();
-              }, icon: const Icon(Icons.arrow_back_ios)),
+              },
+              icon: const Icon(Icons.arrow_back_ios)),
           actions: [
             IconButton(
               onPressed: () async {
@@ -116,7 +117,7 @@ class BookDetailView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        goToBookOwnerButton( book.userId ?? "" ,context),
+        goToBookOwnerButton(book.userId ?? "", context),
         const SizedBox(
           width: 20,
         ),

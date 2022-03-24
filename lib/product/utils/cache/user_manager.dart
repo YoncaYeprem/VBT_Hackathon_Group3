@@ -1,4 +1,4 @@
-import 'package:vbt_hackathon_group3/product/utils/cache/cache_manager.dart';
+import 'cache_manager.dart';
 
 import '../../../core/init/locale/locale_manager.dart';
 

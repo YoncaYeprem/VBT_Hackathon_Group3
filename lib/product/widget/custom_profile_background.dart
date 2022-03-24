@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/product/constant/app_radius.dart';
+import '../constant/app_radius.dart';
 
 class ProfileBackground extends StatelessWidget {
   Widget body;

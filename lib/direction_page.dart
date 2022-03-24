@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:vbt_hackathon_group3/feature/home/home_view/home_view.dart';
 
 import 'feature/myFavoritesPage/view/my_favorites_view.dart';
