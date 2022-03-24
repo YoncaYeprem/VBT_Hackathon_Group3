@@ -1,11 +1,10 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../addBook/book_model/productmodel.dart';
 import '../../../product/utils/firebase/firebase_storage_functions.dart';
+import '../../addBook/book_model/productmodel.dart';
 import '../../authentication/register/model/user_model.dart';
 
 part 'other_profile_page_cubit_state.dart';

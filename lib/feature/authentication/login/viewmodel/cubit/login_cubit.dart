@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:vbt_hackathon_group3/product/utils/cache/cache_manager.dart';
+import '../../../../../product/utils/cache/cache_manager.dart';
 import '../../../../../core/init/locale/locale_manager.dart';
 import '../../../../../product/utils/cache/user_manager.dart';
 import '../../../../../product/utils/firebase/firebase_auth.dart';

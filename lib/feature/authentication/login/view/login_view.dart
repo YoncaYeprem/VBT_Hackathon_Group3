@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/feature/home/home_view/home_view.dart';
+import '../../../home/home_view/home_view.dart';
 
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../core/init/theme/color/i_color_theme.dart';
