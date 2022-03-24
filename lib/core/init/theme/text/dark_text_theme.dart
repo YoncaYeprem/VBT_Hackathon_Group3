@@ -15,21 +15,20 @@ class DarkTextTheme implements ITextTheme {
   TextStyle? headline6;
   @override
   TextStyle? body1;
-  @override
-  TextStyle? body2;
+
   @override
   Color? primaryColor;
   @override
+  // TODO: implement getAppColors
   AppColors getAppColors = AppColors();
 
   DarkTextTheme(this.primaryColor) {
     fontFamily = GoogleFonts.lato().fontFamily;
-    headline2 = const TextStyle(fontSize: 65, fontWeight: FontWeight.w400);
-    headline4 = const TextStyle(fontSize: 30, fontWeight: FontWeight.w300);
-    headline6 = const TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
-    body1 = const TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
-    body2 = const TextStyle(fontSize: 18, fontWeight: FontWeight.w800);
-    button = const TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+    headline2 = TextStyle(fontSize: 65, fontWeight: FontWeight.w400);
+    headline4 = TextStyle(fontSize: 30, fontWeight: FontWeight.w300);
+    headline6 = TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
+    body1 = TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
+    button = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   }
 
   @override

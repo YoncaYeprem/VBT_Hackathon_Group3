@@ -19,18 +19,10 @@ class DarkColorTheme implements IColorTheme {
   late final Color? floatingButtonColor;
 
   @override
-  Color? textfield;
-
-  @override
-  Color? colorRed;
-
-  @override
   AppColors colors = AppColors();
 
   DarkColorTheme() {
     appBarColor = colors.black;
-    colorRed = colors.red;
-    textfield = colors.textfieldColor;
     backgroundColor = colors.darkScaffoldColor;
     floatingButtonColor = colors.neapolitan;
     brightness = Brightness.light;

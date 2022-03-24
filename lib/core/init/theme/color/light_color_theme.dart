@@ -17,20 +17,15 @@ class LightColorTheme implements IColorTheme {
 
   @override
   late final Color? floatingButtonColor;
-  @override
-  late final Color? textfield;
-  @override
-  Color? colorRed;
 
   @override
   AppColors colors = AppColors();
 
   LightColorTheme() {
-    appBarColor = colors.scaffoldColor;
-    colorRed = colors.red;
+    appBarColor = colors.prussianPlum;
+
     backgroundColor = colors.scaffoldColor;
     floatingButtonColor = colors.riceVine;
-    textfield = colors.textfieldColor;
     brightness = Brightness.light;
     colorScheme = const ColorScheme.light().copyWith(
       onPrimary: colors.riceVine,

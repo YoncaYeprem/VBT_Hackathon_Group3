@@ -5,10 +5,8 @@ import 'package:kartal/kartal.dart';
 
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../core/init/theme/color/i_color_theme.dart';
-import '../../../../product/utils/validator.dart';
 import '../../../../product/widget/custom_button.dart';
 import '../../../../product/widget/custom_text_field.dart';
-import '../../../profile/view/profile_view.dart';
 import '../../register/view/register_view.dart';
 import '../viewmodel/cubit/login_cubit.dart';
 
@@ -17,23 +15,15 @@ class LoginView extends StatelessWidget {
 
   final _mailController = TextEditingController();
   final _passController = TextEditingController();
-  final FocusNode mailNode = FocusNode();
-  final FocusNode passNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
+  var mailNode = FocusNode();
+  var passNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginState>(
-        listener: (context, state) {
-          if (state is SignSucces) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Login succes")));
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => ProfileView()));
-          }
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(
@@ -54,13 +44,8 @@ class LoginView extends StatelessWidget {
                       child: SizedBox(
                         height: context.dynamicHeight(0.5),
                         child: Padding(
-                          padding: context.paddingLow,
+                          padding: const EdgeInsets.all(8.0),
                           child: Form(
-                            autovalidateMode:
-                                (!mailNode.hasFocus || !passNode.hasFocus)
-                                    ? AutovalidateMode.always
-                                    : AutovalidateMode.disabled,
-                            key: formKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -109,11 +94,7 @@ class LoginView extends StatelessWidget {
 
   StadiumElevatedBTN signInBTN(BuildContext context) {
     return StadiumElevatedBTN(
-        onPressed: () {
-          context
-              .read<LoginCubit>()
-              .signIn(_mailController.text, _passController.text, context);
-        },
+        onPressed: () {},
         child: Text(LocaleKeys.login_signInButton.tr()),
         context: context);
   }
@@ -132,7 +113,6 @@ class LoginView extends StatelessWidget {
 
   CustomTextField passwordTextField(BuildContext context) {
     return CustomTextField(
-        Validator: (v) => Validator().validatePasswordForm(v),
         context: context,
         suffix: IconButton(
             icon: context.read<LoginCubit>().isVisible
@@ -150,7 +130,6 @@ class LoginView extends StatelessWidget {
   CustomTextField mailTextField(BuildContext context) {
     return CustomTextField(
         context: context,
-        Validator: (v) => Validator().validateMailForm(v),
         textInputType: TextInputType.emailAddress,
         hintString: LocaleKeys.login_emailText.tr(),
         textController: _mailController,
