@@ -1,8 +1,8 @@
 part of '../add_book_view.dart';
 
 extension AuthorTextFieldExtention on AddBookView {
-  CustomTextField authorTextField(BuildContext context, AddBookCubit reader) {
-    return CustomTextField(
+  CustomTextFieldBook authorTextField(BuildContext context, AddBookCubit reader) {
+    return CustomTextFieldBook(
         hintString: LocaleKeys.addBook_autherName.tr(),
         context: context,
         textController: reader.autherController,

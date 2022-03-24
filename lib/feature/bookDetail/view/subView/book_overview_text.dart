@@ -8,7 +8,7 @@ extension BookOverviewTextExtension on BookDetailView {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Overview ",
+            LocaleKeys.bookDetail_overview.tr(),
             style: context.textTheme.headlineSmall,
             textAlign: TextAlign.start,
           ),

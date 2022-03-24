@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
+import 'package:vbt_hackathon_group3/feature/other_profile_page/view/other_profile_page_view.dart';
 import '../../addBook/book_model/productmodel.dart';
 import '../../myFavoritesPage/view/my_favorites_view.dart';
 import '../../../../product/widget/custom_text_row.dart';
@@ -34,7 +36,9 @@ class BookDetailView extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-              onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+              onPressed: () {
+                context.pop();
+              }, icon: const Icon(Icons.arrow_back_ios)),
           actions: [
             IconButton(
               onPressed: () async {
@@ -75,22 +79,22 @@ class BookDetailView extends StatelessWidget {
                         children: [
                           CustomRowText(
                             icon: Icons.category_rounded,
-                            label: 'Category',
+                            label: LocaleKeys.bookDetail_category.tr(),
                             value: book.category?.toUpperCase(),
                           ),
                           CustomRowText(
                             icon: Icons.date_range_sharp,
-                            label: 'Uploaded At:',
+                            label: LocaleKeys.bookDetail_uploadedAt.tr(),
                             value: book.createdAt,
                           ),
                           CustomRowText(
                             icon: Icons.date_range_sharp,
-                            label: 'Language:',
+                            label: LocaleKeys.bookDetail_language.tr(),
                             value: book.language ?? "",
                           ),
                           CustomRowText(
                             icon: Icons.date_range_sharp,
-                            label: 'Publish Year:',
+                            label: LocaleKeys.bookDetail_publishYear.tr(),
                             value: book.publishYear ?? "",
                           ),
                         ],
@@ -112,7 +116,7 @@ class BookDetailView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        goToBookOwnerButton(context),
+        goToBookOwnerButton( book.userId ?? "" ,context),
         const SizedBox(
           width: 20,
         ),
@@ -126,11 +130,11 @@ class BookDetailView extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         child: book.exchange!
-            ? const Text.rich(
+            ? Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "Make Exchange ",
+                      text: LocaleKeys.bookDetail_exhange.tr(),
                     )
                   ],
                 ),

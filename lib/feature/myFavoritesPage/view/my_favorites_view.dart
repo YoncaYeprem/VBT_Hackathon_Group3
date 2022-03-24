@@ -21,9 +21,13 @@ class MyFavoritesView extends StatelessWidget {
             "My Favorite Books",
             style: TextStyle(fontSize: 24),
           ),
-          actions: [IconButton(onPressed: () {
-            context.navigateToPage(HomeView());
-          }, icon: Icon(Icons.add))],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.navigateToPage(HomeView());
+                },
+                icon: Icon(Icons.add))
+          ],
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
