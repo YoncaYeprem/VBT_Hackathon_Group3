@@ -3,9 +3,11 @@ import 'package:kartal/kartal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
 import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/model/nearbys_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class GoogleMapView extends StatelessWidget {
   GoogleMapView({Key? key}) : super(key: key);
@@ -86,7 +88,7 @@ class GoogleMapView extends StatelessWidget {
     );
   }
 
-  ListView LibrariesList(BuildContext context) {
+  Widget LibrariesList(BuildContext context) {
     return ListView.separated(
       separatorBuilder: (context, index) => const Divider(
         thickness: 1,
@@ -113,6 +115,9 @@ class GoogleMapView extends StatelessWidget {
         backgroundColor: Theme.of(context).secondaryHeaderColor,
         backgroundImage: NetworkImage("${model?.icon}"),
       ),
+      trailing: Text(model?.openingHours?.openNow == true
+          ? LocaleKeys.library_open.tr()
+          : LocaleKeys.library_closed.tr()),
     );
   }
 

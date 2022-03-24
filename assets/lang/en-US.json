@@ -13,5 +13,13 @@
         "emailText": "Email",
         "passwordText": "Password",
         "username": "Username"
+    },
+    "network":{
+        "failedToLoad":"Failed to load libraries"
+    },
+    "library":{
+        "open":"Open",
+        "closed":"Closed"
+
     }
 }

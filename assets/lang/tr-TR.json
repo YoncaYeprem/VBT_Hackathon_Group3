@@ -13,5 +13,13 @@
         "emailText": "Email",
         "passwordText": "Şifre",
         "username": "Kullanıcı Adı"
+    },
+    "network":{
+        "failedToLoad":"Kütüphaneleri yükleme başarısız oldu"
+    },
+    "library":{
+        "open":"Açık",
+        "closed":"Kapalı"
+
     }
 }

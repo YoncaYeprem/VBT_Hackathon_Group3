@@ -14,7 +14,6 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   GoogleMapCubit(this.searchNetworkMaps, this.context)
       : super(GoogleMapInitial()) {
     getCurrentLocation(context);
-    getNearestPlace(currentLocation);
   }
 
   Completer<GoogleMapController> controller = Completer();
@@ -23,10 +22,11 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   ISearchNetworkMaps searchNetworkMaps;
   LocationData? currentLocation;
   BuildContext context;
-  Set<Marker> getMarkers = Set();
+  Set<Marker> getMarkers = {};
   final searchController = TextEditingController();
   final searchNode = FocusNode();
 
+//poinst to istanbul
   final defaultCameraPos = const CameraPosition(
     target: LatLng(41.015137, 28.979530),
     zoom: 12,

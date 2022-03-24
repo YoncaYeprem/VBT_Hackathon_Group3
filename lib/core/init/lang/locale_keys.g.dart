@@ -13,5 +13,10 @@ abstract class  LocaleKeys {
   static const register_passwordText = 'register.passwordText';
   static const register_username = 'register.username';
   static const register = 'register';
+  static const network_failedToLoad = 'network.failedToLoad';
+  static const network = 'network';
+  static const library_open = 'library.open';
+  static const library_closed = 'library.closed';
+  static const library = 'library';
 
 }
