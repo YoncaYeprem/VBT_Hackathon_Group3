@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vbt_hackathon_group3/core/init/locale/locale_manager.dart';
-import 'package:vbt_hackathon_group3/product/utils/cache/cache_manager.dart';
+import '../../../../core/init/locale/locale_manager.dart';
+import '../../../../product/utils/cache/cache_manager.dart';
 
 import '../../../../product/utils/cache/user_manager.dart';
 import '../../../addBook/book_model/productmodel.dart';

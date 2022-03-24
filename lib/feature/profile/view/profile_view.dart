@@ -1,18 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import '../../../core/init/locale/locale_manager.dart';
-import '../../../product/utils/cache/cache_manager.dart';
-import '../../../product/utils/cache/user_manager.dart';
-import '../../home/home_view/home_view.dart';
-import '../viewmodel/cubit/profile_cubit.dart';
 
 import '../../../product/widget/custom_profile_background.dart';
+import '../../../product/widget/custom_profile_detail_list.dart';
 import '../../../product/widget/custom_profile_text.dart';
 import '../../../product/widget/custom_profile_widget.dart';
-
-import '../../../product/widget/custom_profile_detail_list.dart';
+import '../../home/home_view/home_view.dart';
+import '../viewmodel/cubit/profile_cubit.dart';
 
 class ProfileView extends StatelessWidget {
   final String? userId;

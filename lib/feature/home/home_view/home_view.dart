@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/core/init/locale/locale_manager.dart';
-import 'package:vbt_hackathon_group3/feature/addBook/view/add_book_view.dart';
-import 'package:vbt_hackathon_group3/product/utils/cache/cache_manager.dart';
+import '../../../core/init/locale/locale_manager.dart';
+import '../../addBook/view/add_book_view.dart';
+import '../../../product/utils/cache/cache_manager.dart';
 import '../../../product/utils/cache/user_manager.dart';
 import '../../../product/widget/custom_text_field_search.dart';
 import '../../profile/view/profile_view.dart';

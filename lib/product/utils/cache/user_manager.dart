@@ -1,6 +1,4 @@
-import 'package:vbt_hackathon_group3/product/utils/cache/cache_manager.dart';
 
-import '../../../core/init/locale/locale_manager.dart';
 
 abstract class IUserManager {
   void saveToken(String token);

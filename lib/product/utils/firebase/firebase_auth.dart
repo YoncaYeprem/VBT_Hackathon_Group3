@@ -1,10 +1,11 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/init/lang/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class Authentication {
   Future<User?> eMailSignIn(
