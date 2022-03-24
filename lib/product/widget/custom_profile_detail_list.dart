@@ -23,7 +23,7 @@ class ProfileInformation extends StatelessWidget {
           GestureDetector(
             child: const Card(
               child: ListTile(
-                title: Text("Kitaplarım"),
+                title: Text("Kitaplarim"),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
               ),
             ),
