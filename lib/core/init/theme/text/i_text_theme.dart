@@ -8,6 +8,7 @@ abstract class ITextTheme {
   TextStyle? headline4;
   TextStyle? headline6;
   TextStyle? body1;
+  TextStyle? body2;
   final Color? primaryColor;
   TextStyle? button;
 

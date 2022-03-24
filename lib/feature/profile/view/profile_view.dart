@@ -10,11 +10,11 @@ import '../../home/home_view/home_view.dart';
 import '../viewmodel/cubit/profile_cubit.dart';
 
 class ProfileView extends StatelessWidget {
-  final String? userId;
+  final String userId;
 
   const ProfileView({
     Key? key,
-    this.userId,
+    required this.userId,
   }) : super(key: key);
 
   @override
@@ -61,15 +61,10 @@ Scaffold buildScaffold(BuildContext context) {
 
 AppBar appBarBuild(BuildContext context) {
   return AppBar(
-    leading: IconButton(
-        onPressed: () {
-          context.navigateToPage(HomeView());
-        }, icon: const Icon(Icons.chevron_left_sharp)),
     actions: [
       IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_basket)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
     ],
-    
     backgroundColor: Colors.red,
     elevation: 0,
   );

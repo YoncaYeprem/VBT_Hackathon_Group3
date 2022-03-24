@@ -17,7 +17,8 @@ class LightTextTheme implements ITextTheme {
   TextStyle? body1;
   @override
   TextStyle? button;
-
+  @override
+  TextStyle? body2;
   @override
   Color? primaryColor;
   @override
@@ -32,6 +33,7 @@ class LightTextTheme implements ITextTheme {
         fontWeight: FontWeight.w100,
         color: getAppColors.headline6Color);
     body1 = const TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
+    body2 = const TextStyle(fontSize: 18, fontWeight: FontWeight.w800);
     button = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,

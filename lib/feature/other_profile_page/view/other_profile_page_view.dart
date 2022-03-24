@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
@@ -12,7 +11,6 @@ import '../cubit/other_profile_page_cubit.dart';
 class OtherProfilePage extends StatelessWidget {
   const OtherProfilePage({Key? key, required this.userId}) : super(key: key);
   final String? userId;
-  final tempUID = "UI6gjx43h6gYEigYKNphCOWn8tH2";
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +62,6 @@ class OtherProfilePage extends StatelessWidget {
           const CustomProfileText(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context
-              .read<OtherProfilePageCubit>()
-              .getAllBookData(context.read<OtherProfilePageCubit>().user?.id);
-        },
-      ),
     );
   }
 
@@ -81,15 +72,6 @@ class OtherProfilePage extends StatelessWidget {
             context.pop();
           },
           icon: const Icon(Icons.chevron_left_sharp)),
-      actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_basket)),
-        IconButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const ProfileView()));
-            },
-            icon: const Icon(Icons.notifications))
-      ],
       backgroundColor: Colors.red,
       elevation: 0,
     );

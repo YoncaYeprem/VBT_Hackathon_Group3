@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import '../../../../direaction_page.dart';
 import '../../../home/home_view/home_view.dart';
 
 import '../../../../core/init/lang/locale_keys.g.dart';
@@ -32,7 +33,7 @@ class LoginView extends StatelessWidget {
             // ScaffoldMessenger.of(context)
             //     .showSnackBar(SnackBar(content: Text("Login succes")));
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => HomeView()));
+                MaterialPageRoute(builder: (context) => DirectionPage()));
           }
         },
         builder: (context, state) {

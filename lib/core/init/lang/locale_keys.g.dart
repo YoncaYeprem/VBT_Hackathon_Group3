@@ -62,5 +62,26 @@ abstract class  LocaleKeys {
   static const bookDetail_exhange = 'bookDetail.exhange';
   static const bookDetail_overview = 'bookDetail.overview';
   static const bookDetail = 'bookDetail';
+  static const onboard_skipButton = 'onboard.skipButton';
+  static const onboard_nextButton = 'onboard.nextButton';
+  static const onboard_doneButton = 'onboard.doneButton';
+  static const onboard_title = 'onboard.title';
+  static const onboard_page1desc = 'onboard.page1desc';
+  static const onboard_page2desc = 'onboard.page2desc';
+  static const onboard_page3desc = 'onboard.page3desc';
+  static const onboard = 'onboard';
+  static const home_addNew = 'home.addNew';
+  static const home_sale = 'home.sale';
+  static const home_swap = 'home.swap';
+  static const home_welcome = 'home.welcome';
+  static const home_info = 'home.info';
+  static const home = 'home';
+  static const network_failedToLoad = 'network.failedToLoad';
+  static const network = 'network';
+  static const library_open = 'library.open';
+  static const library_closed = 'library.closed';
+  static const library = 'library';
+  static const profil_book_myBook = 'profil_book.myBook';
+  static const profil_book = 'profil_book';
 
 }
