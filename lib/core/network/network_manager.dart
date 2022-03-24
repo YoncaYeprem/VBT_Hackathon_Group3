@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/model/nearbys_model.dart';
 
 class NetworkManager {
@@ -21,21 +24,50 @@ abstract class ISearchNetworkMaps {
   final Dio dio;
 
   ISearchNetworkMaps(this.dio);
-  Future<BaseModel?> getAllPlaces(BuildContext context);
+  Future<BaseNearestPlaceModel?> getAllPlaces(
+      BuildContext context, LocationData? locationData);
+  Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
+      LocationData? locationData);
 }
 
 class SearchNetworkMaps extends ISearchNetworkMaps {
   SearchNetworkMaps(Dio dio) : super(dio);
 
   @override
-  Future<BaseModel?> getAllPlaces(BuildContext context) async {
+  Future<BaseNearestPlaceModel?> getAllPlaces(
+      BuildContext context, LocationData? locationData) async {
     final response = await dio.get(
-        "nearbysearch/json?keyword=library&location=-33.8670522%2C151.1957362&radius=1500&type=library&key=AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs");
+        "nearbysearch/json?keyword=library&location=${locationData?.latitude},${locationData?.longitude}&radius=1500&type=library&key=AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs");
+
     if (response.statusCode == 200) {
-      return BaseModel.fromJson(response.data);
+      return BaseNearestPlaceModel.fromJson(response.data);
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Failed")));
     }
   }
+
+  @override
+  Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
+      LocationData? locationData) {
+    // TODO: implement getAsListAllNearPlaces
+    throw UnimplementedError();
+  }
+
+  // @override
+  // Future<List<BaseNearestPlaceModel>?> getAsListAllNearPlaces(
+  //     LocationData? locationData) async {
+  //   final response = await dio.get(
+  //       "nearbysearch/json?keyword=library&location=${locationData?.latitude},${locationData?.longitude}&radius=1500&type=library&key=AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs");
+  //   if (response.statusCode == 200) {
+  //     BaseNearestPlaceModel base = BaseNearestPlaceModel.fromJson(response.data);
+  //     List<PlacesNearbySearchResponseModel> list = [];
+  //     base.results?.forEach((element) {
+  //       PlacesNearbySearchResponseModel temp =
+  //           PlacesNearbySearchResponseModel.fromJson(element);
+  //       list.add(temp);
+  //     });
+  //   }
+  //   return null;
+  // }
 }

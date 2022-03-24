@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
 import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
+import 'package:vbt_hackathon_group3/product/widget/custom_text_field.dart';
 
 class GoogleMapView extends StatelessWidget {
   GoogleMapView({Key? key}) : super(key: key);
@@ -40,8 +41,51 @@ class GoogleMapView extends StatelessWidget {
                 context.read<GoogleMapCubit>().controller.complete(controller);
               },
             ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: Card(
+                    child: ListView.builder(
+                      itemCount: context
+                          .read<GoogleMapCubit>()
+                          .nearbyModel
+                          ?.results
+                          ?.length,
+                      itemBuilder: (context, index) {
+                        var model = context
+                            .read<GoogleMapCubit>()
+                            .nearbyModel
+                            ?.results?[index];
+                        return ListTile(title: Text("${model?.name}"));
+                      },
+                    ),
+                  )),
+            ),
             changeMapTypeBTN(context),
             exitFromViewIconBTN(context),
+//             Align(
+//               alignment: Alignment.topCenter,
+//               child: Container(
+//                 margin: context.verticalPaddingLow,
+//                 padding: context.horizontalPaddingHigh,
+//                 child: TextFormField(
+//                   controller: context.read<GoogleMapCubit>().searchController,
+//                   onFieldSubmitted: (v) {
+// // context.read<GoogleMapCubit>().
+//                   },
+//                   decoration: InputDecoration(
+//                     hintText: "Galata Kulesi",
+//                     border: OutlineInputBorder(
+//                         borderSide: BorderSide.none,
+//                         borderRadius: BorderRadius.circular(20)),
+//                     fillColor: Colors.white,
+//                     filled: true,
+//                   ),
+//                 ),
+//               ),
+//             )
           ],
         ),
         floatingActionButton: FloatingActionButton(

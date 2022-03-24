@@ -14,16 +14,19 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
   GoogleMapCubit(this.searchNetworkMaps, this.context)
       : super(GoogleMapInitial()) {
     getCurrentLocation(context);
+    getNearestPlace(currentLocation);
   }
 
   Completer<GoogleMapController> controller = Completer();
   bool isHybrid = false;
-  BaseModel? nearbyModel;
+  BaseNearestPlaceModel? nearbyModel;
   ISearchNetworkMaps searchNetworkMaps;
   LocationData? currentLocation;
   BuildContext context;
   Set<Marker> getMarkers = {};
-  List<Marker> markers = <Marker>[];
+  List<Set<Marker>> markers = <Set<Marker>>[];
+  final searchController = TextEditingController();
+  final searchNode = FocusNode();
 
   final defaultCameraPos = const CameraPosition(
     target: LatLng(41.015137, 28.979530),
@@ -59,7 +62,12 @@ class GoogleMapCubit extends Cubit<GoogleMapState> {
               currentLocation?.longitude ?? 28.979530))));
       createMarker(
           LatLng(currentLocation!.latitude!, currentLocation!.longitude!));
+      getNearestPlace(currentLocation);
       emit(GetCurrentLocState());
     }
+  }
+
+  Future<void> getNearestPlace(LocationData? locationData) async {
+    nearbyModel = await searchNetworkMaps.getAllPlaces(context, locationData);
   }
 }
