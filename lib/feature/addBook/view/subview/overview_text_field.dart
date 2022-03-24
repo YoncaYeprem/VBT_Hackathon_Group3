@@ -1,8 +1,8 @@
 part of '../add_book_view.dart';
 
 extension OverviewTextField on AddBookView {
-  CustomTextField overviewTextField(BuildContext context, AddBookCubit reader) {
-    return CustomTextField(
+  CustomTextFieldBook overviewTextField(BuildContext context, AddBookCubit reader) {
+    return CustomTextFieldBook(
         hintString: LocaleKeys.addBook_bookOverview.tr(),
         context: context,
         textController: reader.overviewController,

@@ -1,9 +1,9 @@
 part of '../add_book_view.dart';
 
 extension PageCountTextField on AddBookView {
-  CustomTextField pageCountTextField(
+  CustomTextFieldBook pageCountTextField(
       BuildContext context, AddBookCubit reader) {
-    return CustomTextField(
+    return CustomTextFieldBook(
         hintString: LocaleKeys.addBook_pageCount.tr(),
         context: context,
         textController: reader.pageCountController,

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/feature/home/home_view/home_view.dart';
 
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../../core/init/theme/color/i_color_theme.dart';
@@ -28,10 +29,10 @@ class LoginView extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is SignSucces) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Login succes")));
+            // ScaffoldMessenger.of(context)
+            //     .showSnackBar(SnackBar(content: Text("Login succes")));
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => ProfileView()));
+                MaterialPageRoute(builder: (context) => HomeView()));
           }
         },
         builder: (context, state) {

@@ -37,6 +37,7 @@ class Authentication {
         await user.sendEmailVerification();
         _sendSnacMessage(context, LocaleKeys.firebase_verifyMailMessage.tr());
       }
+      return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
         _sendSnacMessage(context, LocaleKeys.firebase_mailAlreadyUsing.tr());

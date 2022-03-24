@@ -35,7 +35,7 @@ class FirebaseStorageFunctions {
     await firestore.collection("users").doc(userId).set(user.toJson());
   }
 
-  Future<UserModel?> getUserModel() async {
+  Future<UserModel?> getUserModel(String userId) async {
     try {
       final user = FirebaseFirestore.instance
           .collection("users")
@@ -45,7 +45,7 @@ class FirebaseStorageFunctions {
               toFirestore: (model, _) => UserModel().toJson());
 
       final model = await user
-          .doc("UI6gjx43h6gYEigYKNphCOWn8tH2")
+          .doc(userId)
           .get()
           .then((value) => value.data());
       if (model != null) {

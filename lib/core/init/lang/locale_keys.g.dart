@@ -54,5 +54,13 @@ abstract class  LocaleKeys {
   static const addBook_category_humor = 'addBook.category.humor';
   static const addBook_category = 'addBook.category';
   static const addBook = 'addBook';
+  static const bookDetail_pages = 'bookDetail.pages';
+  static const bookDetail_category = 'bookDetail.category';
+  static const bookDetail_uploadedAt = 'bookDetail.uploadedAt';
+  static const bookDetail_language = 'bookDetail.language';
+  static const bookDetail_publishYear = 'bookDetail.publishYear';
+  static const bookDetail_exhange = 'bookDetail.exhange';
+  static const bookDetail_overview = 'bookDetail.overview';
+  static const bookDetail = 'bookDetail';
 
 }

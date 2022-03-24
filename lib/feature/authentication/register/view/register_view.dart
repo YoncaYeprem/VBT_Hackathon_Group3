@@ -33,7 +33,7 @@ class RegisterView extends StatelessWidget {
                   ? ScrollPhysics()
                   : NeverScrollableScrollPhysics(),
               child: SizedBox(
-                height: context.height,
+                height: context.dynamicHeight(1.5),
                 child: SafeArea(
                   child: reader.isLoading
                       ? const Center(child: CircularProgressIndicator())
@@ -43,14 +43,14 @@ class RegisterView extends StatelessWidget {
                             child: Column(
                               children: [
                                 Expanded(
-                                    flex: 2,
                                     child: profileImage(
                                         context.read<RegisterCubit>())),
                                 Expanded(
-                                    flex: 9,
+                                    flex: 6,
                                     child: buildForm(context,
                                         context.read<RegisterCubit>())),
                                 Expanded(
+                                  flex: 2,
                                   child: TextButton(
                                       onPressed: () {
                                         Navigator.push(
@@ -61,7 +61,6 @@ class RegisterView extends StatelessWidget {
                                       },
                                       child: Text("Do you have an acoount?")),
                                 ),
-                                Spacer(),
                               ],
                             ),
                           ),

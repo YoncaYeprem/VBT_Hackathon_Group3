@@ -58,5 +58,14 @@
             "history": "History",
             "humor": "Humor"
         }
+    },
+    "bookDetail":{
+        "pages":"Pages",
+        "category":"Category",
+        "uploadedAt":"Uploaded At",
+        "language":"Language",
+        "publishYear":"Publish Year",
+        "exhange":"Make Exhange",
+        "overview":"Overview"
     }
 }

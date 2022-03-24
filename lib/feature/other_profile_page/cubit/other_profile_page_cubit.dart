@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../addBook/book_model/productmodel.dart';
@@ -10,16 +11,17 @@ import '../../authentication/register/model/user_model.dart';
 part 'other_profile_page_cubit_state.dart';
 
 class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
-  OtherProfilePageCubit() : super(OtherProfilePageCubitInitial()) {
+  OtherProfilePageCubit(this.userId) : super(OtherProfilePageCubitInitial()) {
     init();
   }
   List<BookModel>? listBookModel;
+  String userId;
   UserModel? user;
 
   Future<void> getUserData() async {
     try {
       // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
-      user = await FirebaseStorageFunctions().getUserModel();
+      user = await FirebaseStorageFunctions().getUserModel(userId);
 
       print(user?.id);
       if (user != null) {

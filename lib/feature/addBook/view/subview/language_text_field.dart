@@ -1,8 +1,8 @@
 part of '../add_book_view.dart';
 
 extension LanguageTextField on AddBookView {
-  CustomTextField languageTextField(BuildContext context, AddBookCubit reader) {
-    return CustomTextField(
+  CustomTextFieldBook languageTextField(BuildContext context, AddBookCubit reader) {
+    return CustomTextFieldBook(
         hintString: LocaleKeys.addBook_language.tr(),
         context: context,
         textController: reader.languageController,

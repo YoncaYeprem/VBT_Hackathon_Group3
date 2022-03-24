@@ -1,9 +1,9 @@
 part of '../add_book_view.dart';
 
 extension PublishYearTextField on AddBookView {
-  CustomTextField publishYearTextField(
+  CustomTextFieldBook publishYearTextField(
       BuildContext context, AddBookCubit reader) {
-    return CustomTextField(
+    return CustomTextFieldBook(
         hintString: LocaleKeys.addBook_publisherYear.tr(),
         context: context,
         textController: reader.publishYearController,

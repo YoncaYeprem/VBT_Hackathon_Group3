@@ -58,5 +58,14 @@
             "history": "Tarih",
             "humor": "Mizah"
         }
+    },
+    "bookDetail":{
+        "pages":"Sayfa",
+        "category":"Kategori",
+        "uploadedAt":"Yükleme",
+        "language":"Dil",
+        "publishYear":"Basım Yılı",
+        "exhange":"Takas Yap",
+        "overview":"Genel Bakış"
     }
 }
