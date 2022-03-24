@@ -45,55 +45,55 @@ class GoogleMapView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: context.read<GoogleMapCubit>().nearbyModel?.results == null
                   ? null
-                  : SizedBox(
-                      width: 300,
-                      height: 300,
-                      child: Card(
-                        child: ListView.builder(
-                          itemCount: context
-                              .read<GoogleMapCubit>()
-                              .nearbyModel
-                              ?.results
-                              ?.length,
-                          itemBuilder: (context, index) {
-                            var model = context
-                                .read<GoogleMapCubit>()
-                                .nearbyModel
-                                ?.results?[index];
-                            return GestureDetector(
-                                onTap: () {
-                                  context
+                  : BottomSheet(
+                      onClosing: () {},
+                      builder: (context) {
+                        return Container(
+                            constraints: BoxConstraints(
+                                maxHeight: context.dynamicHeight(0.3)),
+                            width: 300,
+                            height: 300,
+                            child: ListView.separated(
+                              separatorBuilder: (context, index) =>
+                                  const Divider(
+                                thickness: 1,
+                              ),
+                              shrinkWrap: true,
+                              itemCount: context
                                       .read<GoogleMapCubit>()
-                                      .goToSelected(model);
-                                },
-                                child: ListTile(title: Text("${model?.name}")));
-                          },
-                        ),
-                      )),
+                                      .nearbyModel
+                                      ?.results
+                                      ?.length ??
+                                  0,
+                              itemBuilder: (context, index) {
+                                var model = context
+                                    .read<GoogleMapCubit>()
+                                    .nearbyModel
+                                    ?.results?[index];
+                                return GestureDetector(
+                                    onTap: () {
+                                      context
+                                          .read<GoogleMapCubit>()
+                                          .goToSelected(model);
+                                    },
+                                    child: ListTile(
+                                      title: Text("${model?.name}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium),
+                                      leading: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        backgroundImage:
+                                            NetworkImage("${model?.icon}"),
+                                      ),
+                                    ));
+                              },
+                            ));
+                      },
+                    ),
             ),
             changeMapTypeBTN(context),
             exitFromViewIconBTN(context),
-//             Align(
-//               alignment: Alignment.topCenter,
-//               child: Container(
-//                 margin: context.verticalPaddingLow,
-//                 padding: context.horizontalPaddingHigh,
-//                 child: TextFormField(
-//                   controller: context.read<GoogleMapCubit>().searchController,
-//                   onFieldSubmitted: (v) {
-// // context.read<GoogleMapCubit>().
-//                   },
-//                   decoration: InputDecoration(
-//                     hintText: "Galata Kulesi",
-//                     border: OutlineInputBorder(
-//                         borderSide: BorderSide.none,
-//                         borderRadius: BorderRadius.circular(20)),
-//                     fillColor: Colors.white,
-//                     filled: true,
-//                   ),
-//                 ),
-//               ),
-//             )
           ],
         ),
         floatingActionButton: FloatingActionButton(
