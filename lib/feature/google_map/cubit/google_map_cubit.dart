@@ -3,8 +3,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
-import 'package:vbt_hackathon_group3/feature/google_map/funcs/location_data_funcs.dart';
+import '../../../core/network/network_manager.dart';
+import '../funcs/location_data_funcs.dart';
 
 import '../model/nearbys_model.dart';
 

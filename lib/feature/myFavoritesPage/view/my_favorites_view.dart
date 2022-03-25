@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/direaction_page.dart';
+import '../../../direaction_page.dart';
 import '../../home/home_view/home_view.dart';
 
 import '../../addBook/book_model/productmodel.dart';

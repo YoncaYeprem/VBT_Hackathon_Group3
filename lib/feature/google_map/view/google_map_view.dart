@@ -3,10 +3,10 @@ import 'package:kartal/kartal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
-import 'package:vbt_hackathon_group3/core/network/network_manager.dart';
-import 'package:vbt_hackathon_group3/feature/google_map/cubit/google_map_cubit.dart';
-import 'package:vbt_hackathon_group3/feature/google_map/model/nearbys_model.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
+import '../../../core/network/network_manager.dart';
+import '../cubit/google_map_cubit.dart';
+import '../model/nearbys_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class GoogleMapView extends StatelessWidget {

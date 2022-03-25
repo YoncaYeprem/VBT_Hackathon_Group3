@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:vbt_hackathon_group3/core/constants/key_storage.dart';
-import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
-import 'package:vbt_hackathon_group3/feature/google_map/model/nearbys_model.dart';
+import '../constants/key_storage.dart';
+import '../init/lang/locale_keys.g.dart';
+import '../../feature/google_map/model/nearbys_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class NetworkManager {

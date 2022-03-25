@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:vbt_hackathon_group3/core/init/locale/locale_manager.dart';
-import 'package:vbt_hackathon_group3/feature/addBook/book_model/productmodel.dart';
-import 'package:vbt_hackathon_group3/product/utils/firebase/firebase_storage_functions.dart';
+import '../../../../core/init/locale/locale_manager.dart';
+import '../../../addBook/book_model/productmodel.dart';
+import '../../../../product/utils/firebase/firebase_storage_functions.dart';
 
 import '../../../../product/utils/cache/cache_manager.dart';
 

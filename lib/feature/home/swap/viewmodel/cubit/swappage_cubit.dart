@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import '../../../../addBook/book_model/productmodel.dart';
+
 import '../../../../../product/utils/firebase/firebase_storage_functions.dart';
+import '../../../../addBook/book_model/productmodel.dart';
 
 part 'swappage_state.dart';
 

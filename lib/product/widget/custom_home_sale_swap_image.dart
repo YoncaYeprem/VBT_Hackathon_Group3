@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/feature/addBook/book_model/productmodel.dart';
-import 'package:vbt_hackathon_group3/product/constant/app_image.dart';
-import 'package:vbt_hackathon_group3/product/constant/app_radius.dart';
+import '../../feature/addBook/book_model/productmodel.dart';
+import '../constant/app_image.dart';
+import '../constant/app_radius.dart';
 
 import '../../feature/bookDetail/view/book_detail_view.dart';
 

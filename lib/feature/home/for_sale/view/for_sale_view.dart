@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vbt_hackathon_group3/feature/home/for_sale/viewmodel/cubit/saleview_cubit.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/product/constant/app_radius.dart';
-import 'package:vbt_hackathon_group3/product/widget/custom_home_sale_swap_image.dart';
+
+import '../../../../product/constant/app_radius.dart';
+import '../../../../product/widget/custom_home_sale_swap_image.dart';
+import '../viewmodel/cubit/saleview_cubit.dart';
 
 class SaleView extends StatelessWidget {
   const SaleView({Key? key}) : super(key: key);

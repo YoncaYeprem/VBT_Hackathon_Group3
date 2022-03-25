@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import 'package:vbt_hackathon_group3/feature/my_book_page/view/my_book_page_view.dart';
+import '../../feature/my_book_page/view/my_book_page_view.dart';
 
 import '../../feature/myFavoritesPage/view/my_favorites_view.dart';
 

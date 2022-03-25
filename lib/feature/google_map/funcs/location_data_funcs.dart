@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:vbt_hackathon_group3/core/init/lang/locale_keys.g.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class LocDataFuncs {
