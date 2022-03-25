@@ -40,10 +40,10 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      title: 'Hackathon App',
+      title: 'KITAP SEPETI',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.createThemeData(AppThemeLight()),
-      home: SplashView(),
+      home: const SplashView(),
     );
   }
 }

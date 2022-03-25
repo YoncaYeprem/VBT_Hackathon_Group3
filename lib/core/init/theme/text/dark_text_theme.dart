@@ -15,7 +15,8 @@ class DarkTextTheme implements ITextTheme {
   TextStyle? headline6;
   @override
   TextStyle? body1;
-
+  @override
+  TextStyle? body2;
   @override
   Color? primaryColor;
   @override
@@ -27,6 +28,7 @@ class DarkTextTheme implements ITextTheme {
     headline4 = const TextStyle(fontSize: 30, fontWeight: FontWeight.w300);
     headline6 = const TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
     body1 = const TextStyle(fontSize: 15, fontWeight: FontWeight.w500);
+    body2 = const TextStyle(fontSize: 18, fontWeight: FontWeight.w800);
     button = const TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   }
 

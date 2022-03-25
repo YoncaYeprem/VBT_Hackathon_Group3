@@ -87,11 +87,8 @@ class FirebaseStorageFunctions {
     }
   }
 
-  /// fetchs all book documents
-  /// Returns BookList
-  /// TODO: Filter with owned id
   Future<List<BookModel>?> getBookModels(
-      {String? bookId, required String ownedUID}) async {
+      {required String ownedUID}) async {
     List<BookModel>? _temp;
     CollectionReference _collRef = firestore.collection("books");
     QuerySnapshot snapshot = await _collRef.get();
@@ -103,4 +100,6 @@ class FirebaseStorageFunctions {
       return null;
     }
   }
+
+  
 }

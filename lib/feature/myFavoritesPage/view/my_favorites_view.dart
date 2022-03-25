@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
+import 'package:vbt_hackathon_group3/direaction_page.dart';
 import '../../home/home_view/home_view.dart';
 
 import '../../addBook/book_model/productmodel.dart';
@@ -19,14 +20,25 @@ class MyFavoritesView extends StatelessWidget {
           centerTitle: true,
           title: Text(
             "My Favorite Books",
-            style: TextStyle(fontSize: 24),
+            style: context.textTheme.headline5!
+                .copyWith(color: context.appTheme.canvasColor),
           ),
+          leading: IconButton(
+              onPressed: () {
+                context.pop();
+              },
+              icon: Icon(Icons.arrow_back_ios,
+                  color: context.appTheme.canvasColor)),
           actions: [
             IconButton(
                 onPressed: () {
-                  context.navigateToPage(HomeView());
+                  context.navigateToPage(DirectionPage());
                 },
-                icon: Icon(Icons.add))
+                icon: Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: Icon(Icons.add,
+                      size: 40, color: context.appTheme.canvasColor),
+                ))
           ],
           backgroundColor: Colors.transparent,
           elevation: 0,

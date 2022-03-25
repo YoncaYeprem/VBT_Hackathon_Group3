@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import '../../../bookDetail/view/book_detail_view.dart';
-import '../model/cubit/swappage_cubit.dart';
+import 'package:vbt_hackathon_group3/product/constant/app_radius.dart';
 
-import '../../../addBook/book_model/productmodel.dart';
-
+import '../../../../product/widget/custom_home_sale_swap_image.dart';
+import '../viewmodel/cubit/swappage_cubit.dart';
 
 class SwapView extends StatelessWidget {
   const SwapView({
@@ -17,12 +16,7 @@ class SwapView extends StatelessWidget {
     return BlocProvider(
       create: (context) => SwappageCubit(),
       child: BlocConsumer<SwappageCubit, SwapPageState>(
-        listener: (context, state) {
-          // if (state is SwapBookFailed) {
-          //   showModalBottomSheet(
-          //       context: context, builder: (context) => const Text("Failed"));
-          // }
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           if (state is SwapHomeLoading) {
             return const Center(
@@ -33,15 +27,17 @@ class SwapView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: state.bookModel?.length,
                 itemBuilder: (context, index) {
-                  var stateIndex = state.bookModel?[index];
+                  final stateIndex = state.bookModel?[index];
                   return Padding(
                     padding: context.verticalPaddingNormal,
                     child: Container(
                       width: context.dynamicWidth(0.4),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadiusCard.circular(),
                       ),
-                      child: _buildImage(context, stateIndex),
+                      child: HomeSaleSwap(
+                        model: stateIndex!,
+                      ),
                     ),
                   );
                 });
@@ -51,31 +47,4 @@ class SwapView extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildImage(BuildContext context, BookModel? state) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => BookDetailView(book: state!)));
-      },
-      child: Column(
-        children: [
-          SizedBox(
-            width: context.dynamicWidth(0.3),
-            height: context.dynamicHeight(0.19),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                state?.photo ??
-                    "https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088775__340.jpg",
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-          Text(state?.bookName ?? ""),
-        ],
-      ),
-    );
-  }
 }
-// "https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088775__340.jpg"
