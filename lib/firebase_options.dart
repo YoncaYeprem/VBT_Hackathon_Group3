@@ -38,7 +38,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD9bozC8J57XBWm6FWuiIFFt3iKguSSipQ',
+    apiKey: '',
     appId: '1:1021459720317:web:8a5b99e8571322f64de914',
     messagingSenderId: '1021459720317',
     projectId: 'vbt-hackathon',
@@ -48,7 +48,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBqsq5dsPBiqdKVhPFgmSY3mOyt57jDuzY',
+    apiKey: '',
     appId: '1:1021459720317:android:4ddc84492d9c6a3f4de914',
     messagingSenderId: '1021459720317',
     projectId: 'vbt-hackathon',
@@ -56,7 +56,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD7j-MkNiwy8jkChSoeaWcqgutXN6F-ANE',
+    apiKey: '',
     appId: '1:1021459720317:ios:d56e10f8910c08b84de914',
     messagingSenderId: '1021459720317',
     projectId: 'vbt-hackathon',
