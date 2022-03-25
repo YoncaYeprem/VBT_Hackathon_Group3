@@ -34,7 +34,6 @@ class GoogleMapView extends StatelessWidget {
             GoogleMapWidget(context),
             BottomLibraryList(context),
             changeMapTypeBTN(context),
-            exitFromViewIconBTN(context),
           ],
         ),
         floatingActionButton: FAB(context),
@@ -126,21 +125,6 @@ class GoogleMapView extends StatelessWidget {
           child: IconButton(
               onPressed: context.read<GoogleMapCubit>().changeMapType,
               icon: Icon(Icons.map_outlined)),
-        ),
-      ),
-    );
-  }
-
-  Align exitFromViewIconBTN(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: context.paddingLow,
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-              onPressed: context.read<GoogleMapCubit>().changeMapType,
-              icon: Icon(Icons.chevron_left)),
         ),
       ),
     );
