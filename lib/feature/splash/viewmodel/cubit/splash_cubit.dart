@@ -1,13 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import '../../../../core/init/locale/locale_manager.dart';
-import '../../../authentication/login/view/login_view.dart';
-import '../../../home/home_view/home_view.dart';
 import '../../../../product/utils/cache/cache_manager.dart';
-
-import '../../../authentication/register/view/register_view.dart';
-
 part 'splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {

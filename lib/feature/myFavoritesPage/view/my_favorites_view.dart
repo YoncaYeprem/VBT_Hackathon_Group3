@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import '../../../direaction_page.dart';
-import '../../home/home_view/home_view.dart';
-
 import '../../addBook/book_model/productmodel.dart';
 import '../../bookDetail/view/book_detail_view.dart';
 import '../viewmodel/cubit/my_favorites_cubit.dart';

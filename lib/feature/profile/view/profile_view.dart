@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kartal/kartal.dart';
-
 import '../../../product/widget/custom_profile_background.dart';
 import '../../../product/widget/custom_profile_detail_list.dart';
 import '../../../product/widget/custom_profile_text.dart';
 import '../../../product/widget/custom_profile_widget.dart';
-import '../../home/home_view/home_view.dart';
 import '../viewmodel/cubit/profile_cubit.dart';
 
 class ProfileView extends StatelessWidget {

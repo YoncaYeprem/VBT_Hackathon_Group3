@@ -1,5 +1,3 @@
-
-
 abstract class IUserManager {
   void saveToken(String token);
   void clearData();

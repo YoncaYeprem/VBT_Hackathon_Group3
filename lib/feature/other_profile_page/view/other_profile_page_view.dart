@@ -5,7 +5,6 @@ import '../../../product/widget/custom_profile_background.dart';
 import '../../../product/widget/custom_profile_book_list.dart';
 import '../../../product/widget/custom_profile_text.dart';
 import '../../../product/widget/custom_profile_widget.dart';
-import '../../profile/view/profile_view.dart';
 import '../cubit/other_profile_page_cubit.dart';
 
 class OtherProfilePage extends StatelessWidget {

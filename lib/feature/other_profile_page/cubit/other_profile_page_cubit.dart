@@ -19,10 +19,7 @@ class OtherProfilePageCubit extends Cubit<OtherProfilePageCubitState> {
 
   Future<void> getUserData() async {
     try {
-      // user = await FirebaseStorageFunctions().getUserModel(user?.id ?? "");
       user = await FirebaseStorageFunctions().getUserModel(userId);
-
-      print(user?.id);
       if (user != null) {
         emit(UserDownloadedState(user!));
       } else {

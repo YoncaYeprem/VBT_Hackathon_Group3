@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
-import '../../../core/init/locale/locale_manager.dart';
 import '../../addBook/view/add_book_view.dart';
 import '../nested_scroll_view/nested_scroll_view.dart';
-import '../../profile/view/profile_view.dart';
-import '../../../product/utils/cache/cache_manager.dart';
 import '../../../product/widget/custom_home_arrival.dart';
 import '../../../product/widget/custom_text_field_search.dart';
 

@@ -5,7 +5,6 @@ import 'package:kartal/kartal.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../other_profile_page/view/other_profile_page_view.dart';
 import '../../addBook/book_model/productmodel.dart';
-import '../../myFavoritesPage/view/my_favorites_view.dart';
 import '../../../../product/widget/custom_text_row.dart';
 import '../viewmodel/cubit/book_detail_cubit.dart';
 

@@ -18,11 +18,7 @@ class FirebaseStorageFunctions {
         DateTime.now().microsecondsSinceEpoch.toString() + '.jpg';
     Reference reference = storage.ref().child("images").child(uploadFileName);
     UploadTask uploadTask = reference.putFile(File(imagePath!.path));
-    uploadTask.snapshotEvents.listen((event) {
-      print(event.bytesTransferred.toString() +
-          "\t" +
-          event.totalBytes.toString());
-    });
+    uploadTask.snapshotEvents.listen((event) {});
 
     await uploadTask.whenComplete(() async {
       uploadPath = await uploadTask.snapshot.ref.getDownloadURL();
@@ -44,10 +40,7 @@ class FirebaseStorageFunctions {
                   UserModel.fromJson(snapshot.data()!),
               toFirestore: (model, _) => UserModel().toJson());
 
-      final model = await user
-          .doc(userId)
-          .get()
-          .then((value) => value.data());
+      final model = await user.doc(userId).get().then((value) => value.data());
       if (model != null) {
         return model;
       }
@@ -62,11 +55,7 @@ class FirebaseStorageFunctions {
         DateTime.now().microsecondsSinceEpoch.toString() + '.jpg';
     Reference reference = storage.ref().child("books").child(uploadFileName);
     UploadTask uploadTask = reference.putFile(File(imagePath!.path));
-    uploadTask.snapshotEvents.listen((event) {
-      print(event.bytesTransferred.toString() +
-          "\t" +
-          event.totalBytes.toString());
-    });
+    uploadTask.snapshotEvents.listen((event) {});
 
     await uploadTask.whenComplete(() async {
       uploadPath = await uploadTask.snapshot.ref.getDownloadURL();
@@ -76,7 +65,8 @@ class FirebaseStorageFunctions {
   }
 
   Future<List<BookModel>?> getBookModelsExchange() async {
-    CollectionReference _bookRef = firestore.collection("books")..where('exchange', isEqualTo: true);
+    CollectionReference _bookRef = firestore.collection("books")
+      ..where('exchange', isEqualTo: true);
     QuerySnapshot snapshot = await _bookRef.get();
     final response = snapshot.docs.map((e) => e.data()).toList();
 
@@ -87,8 +77,7 @@ class FirebaseStorageFunctions {
     }
   }
 
-  Future<List<BookModel>?> getBookModels(
-      {required String ownedUID}) async {
+  Future<List<BookModel>?> getBookModels({required String ownedUID}) async {
     List<BookModel>? _temp;
     CollectionReference _collRef = firestore.collection("books");
     QuerySnapshot snapshot = await _collRef.get();
@@ -100,6 +89,4 @@ class FirebaseStorageFunctions {
       return null;
     }
   }
-
-  
 }

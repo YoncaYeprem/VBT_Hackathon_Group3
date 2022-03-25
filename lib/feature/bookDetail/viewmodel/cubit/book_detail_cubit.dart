@@ -14,38 +14,31 @@ class BookDetailCubit extends Cubit<BookDetailState> {
   BookModel book;
   bool isSaved = false;
   LocalStorage localStorage = HiveLocalStorage();
-  
+
   checkIsSaved() async {
-    print("init kısmında");
     if (await localStorage.getABook(id: book.id!) == null) {
       isSaved = false;
     } else {
       isSaved = true;
     }
-    print(isSaved.toString());
+
     emit(BookDetailSavedInfo());
   }
 
-changeSaved(){
-  isSaved = !isSaved;
-  emit(BookDetailSave());
-}
+  changeSaved() {
+    isSaved = !isSaved;
+    emit(BookDetailSave());
+  }
+
   addOrDeleteFromFavorites() async {
     changeSaved();
-    print("From clicked " + isSaved.toString());
     if (await localStorage.getABook(id: book.id!) == null) {
-      print("Ekleme kısmında");
       await localStorage.addBook(book: book);
-      
+
       emit(BookDetailDeleted());
-      print("added to hive");
     } else {
-      print("Silme kısmında");
       await localStorage.deleteBook(book: book);
-      print("deleted from hive");
       emit(BookDetailAdded());
     }
   }
-
-  
 }

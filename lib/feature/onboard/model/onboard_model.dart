@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
-import '../../../core/init/lang/locale_keys.g.dart';
 
 class OnboardModel {
   String title;
