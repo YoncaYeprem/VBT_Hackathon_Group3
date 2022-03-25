@@ -19,14 +19,25 @@ class DarkColorTheme implements IColorTheme {
   late final Color? floatingButtonColor;
 
   @override
+  Color? textfield;
+
+  @override
+  Color? colorRed;
+
+  @override
   AppColors colors = AppColors();
 
   DarkColorTheme() {
     appBarColor = colors.black;
-    backgroundColor = colors.neapolitan;
+    colorRed = colors.red;
+    textfield = colors.textfieldColor;
+    backgroundColor = colors.darkScaffoldColor;
     floatingButtonColor = colors.neapolitan;
     brightness = Brightness.light;
-    colorScheme = const ColorScheme.dark()
-        .copyWith(onPrimary: colors.black, onSurface: colors.appleBlossom);
+    colorScheme = const ColorScheme.dark().copyWith(
+      onPrimary: colors.black,
+      onSurface: colors.appleBlossom,
+      primary: colors.lightRed,
+    );
   }
 }

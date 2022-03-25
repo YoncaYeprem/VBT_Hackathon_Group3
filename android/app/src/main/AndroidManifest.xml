@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vbt_hackathon_group3">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.CAMERA" />
    <application
         android:label="vbt_hackathon_group3"
         android:name="${applicationName}"
@@ -30,5 +36,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <meta-data
+              android:name="com.google.android.geo.API_KEY"
+              android:value="AIzaSyCARKG3wS6Eg2fFqT2zuEZ-WY8de6fftPs"/>
     </application>
 </manifest>

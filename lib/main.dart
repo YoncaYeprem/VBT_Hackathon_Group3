@@ -1,11 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'core/init/lang/locale_keys.g.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'core/constants/app_constants.dart';
 import 'core/constants/language_manager.dart';
+import 'core/init/locale/locale_manager.dart';
 import 'core/init/theme/app_theme.dart';
+import 'feature/splash/view/splash_view.dart';
 import 'firebase_options.dart';
+import 'feature/addBook/book_model/productmodel.dart';
+import 'product/utils/cache/user_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +18,17 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(EasyLocalization(
-      child: const MyApp(),
-      supportedLocales: LanguageManager.instance.supportedLocales,
-      path: AppConstants.langAssetPath));
+  await Hive.initFlutter();
+  await LocaleManager.preferencesInit();
+
+  Hive.registerAdapter(BookModelAdapter());
+  await Hive.openBox<BookModel>('books');
+  runApp(MultiProvider(
+      providers: [Provider.value(value: UserManager())],
+      child: EasyLocalization(
+          child: MyApp(),
+          supportedLocales: LanguageManager.instance.supportedLocales,
+          path: AppConstants.langAssetPath)));
 }
 
 class MyApp extends StatelessWidget {
@@ -28,19 +40,10 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      title: 'Hackathon App',
+      title: 'KITAP SEPETI',
       debugShowCheckedModeBanner: false,
       theme: ThemeManager.createThemeData(AppThemeLight()),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(LocaleKeys.appBar_title.tr()),
-        ),
-        body: Center(
-          child: Container(
-            child: const Text('Hello World'),
-          ),
-        ),
-      ),
+      home: const SplashView(),
     );
   }
 }

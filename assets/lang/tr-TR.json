@@ -5,12 +5,94 @@
     "login": {
         "signInButton": "Giriş Yap",
         "emailText": "Email",
-        "passwordText": "Şifre"
+        "passwordText": "Şifre",
+        "forgetPassowrd":"Şifremi unuttum?"
     },
     "register": {
         "signUpButton": "Kayıt Ol",
         "emailText": "Email",
         "passwordText": "Şifre",
         "username": "Kullanıcı Adı"
+    },
+    "validator":{
+"cantEmpty":"Bu alan boş bırakılamaz",
+"enterValidValue":"Lütfen geçerli bir değer girin"
+    },
+    "firebase":{
+        "noUserFound":"Kullanıcı bulunamadı",
+        "mailAlreadyUsing":"Mail adresi zaten kullanımda",
+        "verifyMailMessage":"Lütfen mailinizi onaylayın"
+    },
+    "addBook": {
+        "bookName": "Kitap adı",
+        "autherName": "Yazar",
+        "bookOverview": "Kitabın genel bakış",
+        "language": "Dil",
+        "pageCount": "Sayfa sayısı",
+        "price": "Fiyat",
+        "selectButton": "Resim Ekleyiniz",
+        "addButton": "Satışa Çıkart",
+        "publisher": "Yayımcı",
+        "publisherYear": "Yayım Yılı",
+        "addBookAppBar": "Kitap Ekle",
+        "selectCategory": "Kategori Seçiniz",
+        "exchange": "Takas Yap",
+        "sell": "Fiyatlandır",
+        "category": {
+            "remembrance": "Anı",
+            "novel": "Roman",
+            "research": "Araştırma-İnceleme",
+            "science": "Bilim",
+            "biography": "Biyografi",
+            "attempt": "Deneme",
+            "education": "Eğitim",
+            "philosophy": "Felsefe",
+            "travel": "Gezi",
+            "story": "Hikaye",
+            "poetry": "Şiir",
+            "religion": "Din",
+            "child": "Çocuk",
+            "tale": "Masal",
+            "selfImprovement": "Kişisel Gelişim",
+            "psychology": "Psikoloji",
+            "history": "Tarih",
+            "humor": "Mizah"
+        }
+    },
+    "bookDetail":{
+        "pages":"Sayfa",
+        "category":"Kategori",
+        "uploadedAt":"Yükleme",
+        "language":"Dil",
+        "publishYear":"Basım Yılı",
+        "exhange":"Takas Yap",
+        "overview":"Genel Bakış"
+    },
+    "onboard":{
+        "skipButton":"ATLA",
+        "nextButton":"SONRAKİ",
+        "doneButton":"BİTTİ",
+        "title":"KITAP SEPETI",
+        "page1desc":"KITAP SEPETİ ile kitaplarınızı satabilir, ya da başka okuyucular ile aranızda takaslar gerçekleştirebilirsiniz.",
+        "page2desc":"KITAP SEPETİ ile kendi kütüphanelerinizi oluşturabilir veya diğer kullanıcıların kütüphanelerine göz atabilirsiniz.",
+        "page3desc":"Kitapların Sihirli Dünyasına Hos Geldiniz."
+    },
+    "home":{
+        "addNew":"Son Eklenenler",
+        "sale":"Satıs",
+        "swap":"Takas",
+        "welcome":"Hos Geldin,",
+        "info":"Bugün ne okumak istersin?"
+    },
+    "network":{
+        "failedToLoad":"Kütüphaneleri yükleme başarısız oldu"
+    },
+    "library":{
+        "open":"Acık",
+        "closed":"Kapalı"
+
+    },
+    "profil_book":{
+        "myBook":"Kitaplarım"
     }
 }

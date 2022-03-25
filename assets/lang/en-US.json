@@ -5,12 +5,93 @@
     "login": {
         "signInButton": "Sign In",
         "emailText": "Email",
-        "passwordText": "Password"
+        "passwordText": "Password",
+        "forgetPassowrd":"Forget Password?"
     },
     "register": {
         "signUpButton": "Sign Up",
         "emailText": "Email",
         "passwordText": "Password",
         "username": "Username"
+    },
+    "validator":{
+        "cantEmpty":"This area cannot be left empty",
+        "enterValidValue":"Please enter a valid value"
+    },
+    "firebase":{
+        "noUserFound":"User not found",
+        "mailAlreadyUsing":"Mail address is already in use",
+        "verifyMailMessage":"Please verify your email"
+    },
+    "addBook": {
+        "bookName": "Book Name",
+        "autherName": "Auther",
+        "bookOverview": "The Book Overview",
+        "language": "Language",
+        "pageCount": "Page Count",
+        "price": "Price",
+        "selectButton": "Add Image",
+        "addButton": "Sell the Book",
+        "publisher": "Publisher",
+        "publisherYear": "Publisher Year",
+        "addBookAppBar": "Add Book",
+        "selectCategory": "Select Category",
+        "exchange": "Exchange",
+        "sell": "Sell",
+        "category": {
+            "remembrance": "Remembrance",
+            "novel": "Noval",
+            "research": "Research",
+            "science": "Science",
+            "biography": "Biography",
+            "attempt": "Attempt",
+            "education": "Education",
+            "philosophy": "Philosophy",
+            "travel": "Travel",
+            "story": "Story",
+            "poetry": "Poetry",
+            "religion": "Religion",
+            "child": "Child",
+            "tale": "Tale",
+            "selfImprovement": "Self-Improvement",
+            "psychology": "Psychology",
+            "history": "History",
+            "humor": "Humor"
+        }
+    },
+    "bookDetail":{
+        "pages":"Pages",
+        "category":"Category",
+        "uploadedAt":"Uploaded At",
+        "language":"Language",
+        "publishYear":"Publish Year",
+        "exhange":"Make Exhange",
+        "overview":"Overview"
+    },
+    "onboard":{
+        "skipButton":"SKIP",
+        "nextButton":"NEXT",
+        "doneButton":"DONE",
+        "title":"KITAP SEPETI",
+        "page1desc":"With this app you can sell your books, or you can trade swaps between you with other readers.",
+        "page2desc":"With this app you can create your own libraries or browse the libraries of other users.",
+        "page3desc":"Welcome to the magic world of books."
+    },
+    "home":{
+        "addNew":"New Arrivals",
+        "sale":"Sale",
+        "swap":"Swap",
+        "welcome":"Welcome back,",
+        "info":"What do you want to read today?"
+    },
+    "network":{
+        "failedToLoad":"Failed to load libraries"
+    },
+    "library":{
+        "open":"Open",
+        "closed":"Closed"
+
+    },"profil_book":{
+        "myBook":"My Book"
     }
 }
