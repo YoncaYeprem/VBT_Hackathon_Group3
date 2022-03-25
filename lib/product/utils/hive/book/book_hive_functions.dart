@@ -38,11 +38,6 @@ class HiveLocalStorage extends LocalStorage {
   Future<List<BookModel>> getAllBooks() async {
     List<BookModel> allBooks = <BookModel>[];
     allBooks = Boxes.getBookHive().values.toList();
-
-    // if (allBooks.isNotEmpty) {
-    //   allBooks.sort(
-    //       (BookModel a, BookModel b) => b.createdAt.compareTo(a.createdAt));
-    // }
     return allBooks;
   }
 }
