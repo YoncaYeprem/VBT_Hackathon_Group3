@@ -1,5 +1,3 @@
-# vbt_hackathon_group3
-
 ### KİTAP SEPETİ
 
 Uygulamamız temel olarak;
